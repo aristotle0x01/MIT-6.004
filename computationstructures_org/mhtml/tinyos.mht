@@ -1,0 +1,3063 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://computationstructures.org/exercises/tinyos/lab.html
+Subject: Tiny Operating System
+Date: Fri, 8 Oct 2021 07:40:44 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----"
+
+
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/html
+Content-ID: <frame-4733C9A1CA253225F808962E77D65910@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://computationstructures.org/exercises/tinyos/lab.html
+
+<!DOCTYPE html><html lang=3D"en"><head lang=3D"en"><meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" t=
+ype=3D"text/css" href=3D"cid:css-01ad9edf-9117-4406-b0ca-3ea553a05cd6@mhtml=
+.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-dc4a56=
+73-6e42-4f40-a62c-ad35f867509c@mhtml.blink" /><link rel=3D"stylesheet" type=
+=3D"text/css" href=3D"cid:css-b0694215-56b2-4e5c-97af-288d2f891ff5@mhtml.bl=
+ink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-1d562391-=
+0356-4cac-9160-806c2f0bfc90@mhtml.blink" /><link rel=3D"stylesheet" type=3D=
+"text/css" href=3D"cid:css-bbe278cc-c804-4df9-9d88-e4e7da7f3e0e@mhtml.blink=
+" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-93319e14-24e=
+d-42f7-9dc1-1c32e066022d@mhtml.blink" /><link rel=3D"stylesheet" type=3D"te=
+xt/css" href=3D"cid:css-26732337-3e78-4e99-ab30-bd56882ccf3f@mhtml.blink" /=
+><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-fd45f230-e396-4=
+153-a757-51d10411364d@mhtml.blink" />
+<title>Tiny Operating System</title>
+
+<meta name=3D"viewport" content=3D"width=3D870">
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+
+<link rel=3D"preconnect" href=3D"https://fonts.googleapis.com/">
+<link rel=3D"preconnect" href=3D"https://fonts.gstatic.com/" crossorigin=3D=
+"">
+<link href=3D"https://fonts.googleapis.com/css2?family=3DIBM+Plex+Mono:ital=
+@0;1&amp;family=3DIBM+Plex+Sans+Condensed:ital@0;1&amp;family=3DIBM+Plex+Sa=
+ns:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&amp;family=3DIBM+Plex+Seri=
+f:ital@0;1&amp;display=3Dswap" rel=3D"stylesheet">
+
+
+<link rel=3D"stylesheet" href=3D"https://computationstructures.org/tools/fo=
+nt-awesome.css">
+<link href=3D"https://computationstructures.org/tools/workbook.css" rel=3D"=
+stylesheet" type=3D"text/css">
+
+
+
+</head>
+
+<body><div id=3D"MathJax_Message" style=3D"display: none;"></div>
+  <div class=3D"navigation">
+    <center><img src=3D"https://computationstructures.org/title.gif" width=
+=3D"200"></center>
+   =20
+<table width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center">
+      <a href=3D"https://computationstructures.org/lectures/index.html"><sp=
+an class=3D"navtab">lectures</span></a>
+    </td>
+    <td align=3D"center">
+      <a href=3D"https://computationstructures.org/videos/index.html"><span=
+ class=3D"navtab">videos</span></a>
+    </td>
+    <td align=3D"center">
+      <a href=3D"https://computationstructures.org/worksheets/index.html"><=
+span class=3D"navtab">worksheets</span></a>
+    </td>
+  </tr>
+  <tr>
+    <td align=3D"center">
+      <a href=3D"https://computationstructures.org/notes/index.html"><span =
+class=3D"navtab">notes</span></a>
+    </td>
+    <td align=3D"center">
+      <a class=3D"selected" href=3D"https://computationstructures.org/exerc=
+ises/index.html"><span class=3D"navtab">labs</span></a>
+    </td>
+  </tr>
+</tbody></table>
+
+<p><b>Labs</b><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/cmos/la=
+b.html">
+    1. CMOS Technology
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/adder/l=
+ab.html">
+    2. CMOS Adder
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/fsm/lab=
+.html">
+    3. FSMs
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/alu/lab=
+.html">
+    4. 32-bit ALU
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/assembl=
+y/lab.html">
+    5. Assembly Language
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/procedu=
+res/lab.html">
+    6. Procedures &amp; Stacks
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/beta/la=
+b.html">
+    7. Building the Beta
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/caches/=
+lab.html">
+    8. Caches
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/illop/l=
+ab.html">
+    9. Emulating Instructions
+  </a><br>
+  <a class=3D"selected" href=3D"https://computationstructures.org/exercises=
+/tinyos/lab.html">
+    10. Tiny Operating System
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/dp/lab.=
+html">
+    11. Optimizing the Beta
+  </a><br>
+</p>
+
+<p><b>Tool Sandboxes</b><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/sandbox=
+es/jade.html">
+    Jade: circuit simulator
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/sandbox=
+es/bsim.html">
+    BSim: Beta simulator
+  </a><br>
+  <a class=3D"" href=3D"https://computationstructures.org/exercises/sandbox=
+es/tmsim.html">
+    TMSim: Turing Machine simulator
+  </a><br>
+</p>
+
+ =20
+<p>
+</p><hr style=3D"border-style:solid; border-color:black;">
+<p>
+  Your exercise answers are saved by the browser in local storage
+  associated with this webpage.  You can use the buttons below
+  to load/save the answers on your system.
+</p>
+
+ =20
+<p>
+  Save all answers:
+  <a download=3D"saved_state.json" href=3D"https://computationstructures.or=
+g/exercises/tinyos/lab.html#"><button>Save</button></a>
+</p>
+
+<p>
+  Load all answers (<i>this will overwrite any answers currently saved by t=
+he browser</i>): <br>
+  <input style=3D"margin-left:1em;" type=3D"file">
+</p>
+
+<p></p><center><i>Authored by Chris Terman</i></center><p></p>
+
+
+  </div>
+  <div class=3D"content">
+    <h1>Tiny Operating System</h1>
+
+    <p>Useful links:
+    </p><ul>
+      <li><a href=3D"https://computationstructures.org/exercises/tool_docs/=
+bsim.html" target=3D"_blank">Introduction to BSim</a></li>
+      <li><a href=3D"https://computationstructures.org/notes/pdfs/betainst.=
+pdf" target=3D"_blank">Summary of Instruction Formats (PDF)</a></li>
+      <li><a href=3D"https://computationstructures.org/notes/pdfs/beta.pdf"=
+ target=3D"_blank">Beta Documentation (PDF)</a></li>
+    </ul>
+
+<p><b>Problem 1.  Design Problem: Tiny OS</b>
+
+    </p><p>See below for instructions.
+
+    </p><p>Use the Bsim instance below to enter your code.  Your buffer is
+      autosaved to the server every few characters, when you click
+      <button>Assemble</button>, or when a running simulation halts.
+      If you received a message about unsaved changes when attempting
+      to close the BSim window, just click <button>Assemble</button>
+      and your changes will be saved.
+
+    </p><p>To complete this design problem, please follow the instructions
+    below, which will ask you to modify the TinyOS code to add some
+    new functionality.  There is no automated test for the lab, so
+    you'll need to run the tests described in the instructions to see
+    if you've meet the design criteria.
+
+<div><div class=3D"answer"><div class=3D"answer-row"><div style=3D"display:=
+ table-cell; width: 100%;">To enable the online system to check this answer=
+, first run the design tests provided by the tool.</div><div class=3D"answe=
+r-check" style=3D"vertical-align: top;"></div></div><div class=3D"answer-me=
+ssage"></div></div><div class=3D"answer-window"><a href=3D"https://computat=
+ionstructures.org/exercises/tinyos/lab.html#">Open BSim in a new window</a>=
+</div></div>
+
+</p><p><b>Instructions</b>
+
+</p><ol>
+
+<li>Copy the code from TinyOS.uasm into the Tiny OS in the BSim window</li>
+<li>Look through the code to figure out how it works.
+</li><li>Modify your copy of the code as described below and test your chan=
+ges</li>
+<li>There is no automated check-in for the lab.  When you are ready
+for checkoff, complete a check-off meeting during staffed lab
+hours (preferably during the less hectic times early in the week).</li>
+
+</ol>
+
+    <p>TinyOS.uasm implements a simple timesharing system (or will after yo=
+u
+    complete Problem 1!).  There is kernel code to deal with supervisor cal=
+ls,
+    illops, and keyboard interrupts, along utility functions for printing o=
+ut
+    console messages, etc.  And initially there are two user-mode processes=
+:
+
+    </p><ul>
+
+      <li><i>Process 0</i>: reads characters from the keyboard,
+        echoing them to the console.  When the return key is entered,
+        the sentence is translated into pig latin and the result also
+        printed to the console.  Then the process repeats.
+
+      <p></p></li><li><i>Process 1</i>: Each time this process runs, it
+      increments a counter and then uses the <tt>Yield()</tt> supervisor ca=
+ll
+      to give up the rest of its timesharing slot.  Every 4096
+      iterations, the process prints the count to the console.
+
+    </li></ul>
+
+    <p>There are three design problems that ask you to modify TinyOS.
+    You must complete the first problem, but the last two are
+    optional, providing additional points should they be completed
+    successfully.
+
+    </p><p><b>Memory Management Unit</b>
+
+    </p><p>BSim implements a very simple memory-management mechanism
+    called <i>base and bounds</i> when "<tt>.options
+    segmentation</tt>" is included in the program.  The MMU contains
+    two control registers, SEG_BASE and SEG_BOUNDS, which the Beta can
+    access using LD and ST instructions. Here's how it works:
+
+    </p><ul>
+      <li> When running in kernel mode (PC[31]=3D1), there is no
+      address translation, i.e., the kernel virtual address is used
+      directly the physical address for main memory.  On startup, the
+      Beta is running in kernel mode.
+
+      <p></p></li><li> When running in user mode (PC[31]=3D0), address
+      translation is enabled, which allows each user-mode process to
+      run in its own virtual address space.  Each user-mode address is
+      translated to a physical address as follows:
+
+      <ul>
+
+        <p></p><li> the user-mode address is compared against the value
+        in the MMU SEG_BOUNDS control register.  If the address is greater
+        than or equal to the SEG_BOUNDS value, a segmentation fault
+        occurs: PC+4 is saved in the XP register and the PC is set to
+        0x80000008.  Note that the value saved in XP is a user-mode
+        virtual address.  If the bounds check succeeds, proceed to the next=
+ step.
+
+        <p></p></li><li> the user-mode address is added to the value in the
+        built-in MMU SEG_BASE control register to form the physical
+        address used to access main memory.
+
+      </li></ul>
+    </li></ul>
+
+    <p>The net effect is that the user-mode virtual address space
+    is mapped to a contiguous region of physical memory that starts
+    at the location specified by the SEG_BASE control register.  The size o=
+f the
+    region (and hence the size of the virtual address space) is
+    determined by the SEG_BOUNDS control register.
+
+    </p><p> The appropriate base and bounds values for each process are
+    kept in the process table, along with the saved register values.
+    When getting ready to run a user-mode process, the kernel
+    initializes the MMU SEG_BASE and SEG_BOUNDS control registers
+    using ST instructions to two reserved memory addresses, which the
+    Beta interprets as accesses to the MMU control registers.
+
+    </p><p></p><pre class=3D"jsim">LD(CurProc, r0)     // pointer to curren=
+t process table entry
+LD(r0, 31*4, r2)    // load base value from proc table
+ST(r2, SEG_BASE)    // store into MMU SEG_BASE control register
+LD(r0, 32*4, r2)    // load bounds value from proc table
+ST(r2, SEG_BOUNDS)  // store into MMU SEG_BOUNDS control register</pre>
+
+    <p>Where do the appropriate base and bound values come from?  They are
+    determined at assembly time.  To enter code and data for a user-mode pr=
+ocess, use
+    the <tt>.segment XXX</tt> directive to tell the assembler to start
+    a new user-mode segment called <tt>XXX</tt>.  Each user-mode segment ha=
+s
+    its own symbol table and is assumed to start at virtual address 0.  Her=
+e's
+    a very simple user-mode process that initializes a stack, then enters
+    an infinite loop incrementing a counter in main memory:
+
+    </p><p></p><pre class=3D"jsim">      .segment Example
+      . =3D 0                // just a reminder that we start at 0
+      CMOVE(stack, SP)     // initialize the stack pointer
+loop: LD(counter, r0)      // load counter value
+      ADDC(r0, 1, r0)      // increment...
+      ST(r0, counter)      // store back into main memory
+      BR(loop)             // repeat
+
+counter:
+      LONG(0)              // storage for counter, initialized to 0
+     =20
+stack:
+      STORAGE(100)         // reserve 100 words for the stack</pre>
+
+    <p>When assembled, two new symbols are defined the kernel's symbol tabl=
+e:
+    <tt>Example_base</tt> with the address of the physical memory
+    location occupied by the first word of the segment (in this case
+    the physical address of the <tt>CMOVE</tt> instruction),
+    and <tt>Example_bounds</tt> with a value equal to the size of the
+    segment in bytes, including both instructions and data.
+
+    </p><p>Note that since execution of this user-mode process will begin a=
+t location
+    0, that location should contain an instruction!
+
+    </p><p>The initial process table entry for this user-mode process would
+    look like
+
+    </p><p></p><pre class=3D"jsim">STORAGE(30)          // storage for regi=
+sters 0-29
+LONG(0)              // storage for XP (initial PC is 0)
+LONG(Example_base)   // process table copy of SEG_BASE
+LONG(Example_bounds) // process table copy of SEG_BOUNDS</pre>
+
+    <p></p><hr><p>
+
+    </p><p><b>Design Problem 1: MapUserAddress</b>
+
+    </p><p>There are times when given a user-mode address, the kernel needs=
+ to
+    read the contents of that location.  For example, when processing an IL=
+LOP
+    exception, the kernel reads the offending instruction from memory and c=
+hecks
+    the opcode field to see if it's a SVC.  The kernel code to do this look=
+s like
+
+    </p><p></p><pre class=3D"jsim">SUBC(XP, 4, r0)         // u-mode addres=
+s of illegal instruction
+CALL(MapUserAddress)    // convert to k-mode address
+LD(r0, 0, r0)           // Fetch the illegal instruction
+SHRC(r0, 26, r0)        // Extract the 6-bit OPCODE</pre>
+
+    <p>Your task is to write the code for the <tt>MapUserAddress</tt> proce=
+dure
+    (search for "[Design Problem 1]" in the TinyOS code.  This procedure em=
+ulates
+    in software what the MMU does in hardware: converting a user-mode virtu=
+al
+    address to the corresponding physical address.
+
+    </p><p>Once <tt>MapUserAddress</tt> is functioning correctly, the pre-d=
+efined
+    process 0 and process 1 code should run correctly.  So if you
+    start the simulation of the assembled code, select the console at
+    the bottom of the simulation pane with a <i>single</i> click, then
+    type "hello there" followed by RETURN, process 0 should type
+    "ELLOHAY ERETHAY".  Meanwhile Process 1 will print out the value
+    of its counter every now and then.
+   =20
+    </p><p></p><hr><p>
+
+    </p><p><b>Design Problem 2: Add support for Mouse clicks</b>
+
+    </p><p><b>Step 1: Add mouse interrupt handler</b>
+
+    </p><p>When you click the mouse over the console pane, BSim generates a=
+n
+    interrupt, forcing the PC to <tt>0x80000014</tt> and saving PC+4 of the
+    interrupted instruction in the XP register.  Note that BSim implements
+    a "vectored interrupt" scheme where different types of interrupts
+    force the PC to different addresses (rather than having all interrupts
+    for the PC to one location).  The following table shows how different
+    exceptions are mapped to PC values:
+    </p><ul>
+      <tt>0x80000000</tt> reset<br>
+      <tt>0x80000004</tt> illegal opcode<br>
+      <tt>0x80000008</tt> segmentation fault<br>
+      <tt>0x8000000C</tt> clock interrupt*<br>
+      <tt>0x80000010</tt> keyboard interrupt**<br>
+      <tt>0x80000014</tt> mouse interrupt**<br>
+      <p>
+      * must specify <tt>.options clk</tt> to enable<br>
+      ** must specify <tt>.options tty</tt> to enable<br>
+    </p></ul>
+
+    <p>Recall that only user-mode programs can be interrupted.
+    Interrupts signaled while in the Beta is running in kernel-mode (<i>e.g=
+.</i>,
+    handling another interrupt or servicing a supervisor call) have no
+    effect until the processor returns to user-mode.
+
+    </p><p>The original TinyOS code prints out "Unexpected interrupt..." an=
+d then
+    halts if a mouse interrupt is received.  Change this behavior in your
+    copy of the code by adding an interrupt handler that stores the click
+    information in a new kernel memory location and then returns to the
+    interrupted process.  You might find the keyboard interrupt handler a
+    good model to follow.
+
+    </p><p>We've added a new Beta instruction your interrupt handler can us=
+e
+    to retrieve information about the last mouse click:
+    </p><pre>     CLICK()</pre>
+
+    <p>This instruction can only be executed when in kernel mode (<i>e.g.</=
+i>,
+    from inside an interrupt handler).  It returns a value in <tt>R0</tt>: =
+-1 if
+    there hasn't been a mouse click since the last time <tt>CLICK()</tt> wa=
+s
+    executed, or a 32-bit integer with the X coordinate of the click in
+    the high-order 16 bits of the word, and the Y coordinate of the click
+    in the low-order 16 bits.  The coordinates are non-negative and
+    relative to the upper left hand corner of the console pane.  In our
+    scenario, <tt>CLICK()</tt> is only called after a mouse click, so we sh=
+ould
+    never see -1 as a return value.
+
+    </p><p>Testing your implementation: insert a <tt>.breakpoint</tt> befor=
+e the
+    <tt>JMP(XP)</tt> at the end of your interrupt handler, run the program =
+and
+    click the mouse over the console pane.  If things are working
+    correctly the simulation should stop at the breakpoint and you can
+    examine the kernel memory location where the mouse info was stored to
+    verify that it's correct.  Continuing execution (click the "Run"
+    button in the toolbar at the top of the window) should return to the
+    interrupted program.  When you're done remember to remove the
+    breakpoint.
+
+    </p><p><b>Step 2: Add Mouse() supervisor call</b>
+
+    </p><p>Implement a <tt>Mouse()</tt> supervisor call that returns the co=
+ordinate
+    information from the most recent mouse click (i.e., the information
+    stored by the mouse interrupt handler).  Like the <tt>GetKey()</tt> sup=
+ervisor
+    call, a user-mode call to <tt>Mouse()</tt> should consume the available=
+ click
+    information.  If no mouse click has occurred since the previous call
+    to <tt>Mouse()</tt>, the supervisor call should "hang" until new click
+    information is available.  "Hang" means that the supervisor call
+    should back up the saved PC so that the next user-mode instruction to
+    be executed is the <tt>Mouse()</tt> call and then branch to the schedul=
+er to
+    run some other user-mode program.  Thus when the calling program is
+    rescheduled for execution at some later point, the <tt>Mouse()</tt> cal=
+l is
+    re-executed and the whole process repeated.  From the user's point of
+    view, the <tt>Mouse()</tt> call completes execution only when there is =
+new
+    click information to be returned.  The <tt>GetKey()</tt> supervisor cal=
+l is a
+    good model to follow.
+
+    </p><p>Notes: Supervisor calls are actually unimplemented instructions
+    that cause the expected trap when executed.  The illegal instruction
+    trap handler looks for illegal instructions it knows to be supervisor
+    calls and calls the appropriate handler -- look at <tt>SVC_UUO</tt> for=
+ details.
+    To define a new supervisor call, add the following definition just
+    after the definition for <tt>Yield()</tt>:
+    </p><pre>     .macro Mouse()   SVC(8)</pre>
+
+    <p>This is the ninth supervisor call and the current code at <tt>SVC_UU=
+O</tt>
+    was tailored for processing exactly eight supervisor calls, so <b>you'l=
+l
+    need to make the appropriate modifications</b>.
+
+    </p><p><b>Step 3: Add third user-mode process that reports mouse clicks=
+</b>
+
+    </p><p>Modify the process table in the kernel to add the appropriate en=
+try
+    for a third user-mode process P2.
+
+    </p><p>You should then define a new segment called P2 and add user-mode=
+ code for the
+    new process that calls <tt>Mouse()</tt> and then prints out a
+    message of the form:
+
+    </p><pre>     Click at x=3D000000EE, y=3D00000041</pre>
+
+    <p>Each click message should appear on its own line (<i>i.e.</i>, it sh=
+ould
+    be preceded and followed by a newline character).  You can use <tt>WrMs=
+g()</tt>
+    and <tt>HexPrt()</tt> to send the message; see the code for Process 0 f=
+or an
+    example of how this is done.
+
+    </p><p><i>Testing your implementation:</i> If all three steps are worki=
+ng
+    correctly the appropriate message should be printed out whenever you
+    click the mouse over the console pane.  You may find it necessary to
+    use <tt>.breakpoint</tt> commands to debug your user-mode code.
+
+    </p><p></p><hr><p>
+     =20
+    </p><p><b>Design Problem 3: Add Signal() and Wait() SVCs</b>
+
+    </p><p>After Problem 2, there are now three user-mode processes that wa=
+nt to
+    print messages to the console.  Depending on timing of user input and t=
+he
+    scheduling of processes, the printouts may interleave in a way that's v=
+ery
+    hard to read.
+
+    </p><p>We'll use a semaphore to ensure that each process' printout is c=
+ompleted
+    without interference from the other processes.  In other words, think o=
+f the
+    console as a shared resource, which should only be accessed by one proc=
+ess
+    at a time.
+
+    </p><p>Your first task is to implement the handlers for the <tt>Signal(=
+)</tt> and
+    <tt>Wait()</tt> SVCs.  TinyOS supports a fixed number N of integer sema=
+phores numbered 0
+    through N-1 (N =3D 4 in the current code).  The semaphore number for th=
+e SVCs
+    is passed in the user's R0.  If the value in the user's R0 is not betwe=
+en
+    0 and N-1 inclusive, the SVCs should simply resume user-mode execution =
+after
+    the SVC.
+
+    </p><p>The <tt>Signal()</tt> SVC increments the value of the specified =
+semaphore,
+    then resumes user-mode execution after the SVC.  For example,
+
+    </p><p></p><pre class=3D"jsim">CMOVE(1, r0)     // signal semaphore #1
+Signal()</pre>
+
+    <p>The <tt>Wait()</tt> SVC tests the value of the specified
+    semaphore.  If the value is greater than 0, it's decremented, then
+    user-mode execution resumes after the SVC.  If the value equals 0,
+    the WAIT operation cannot be completed as this time, so the kernel
+    handler should arrange to re-execute the SVC when execution resumes,
+    then run the next process.  The next time the WAITing process runs,
+    it will once again test the value of the specified semaphore.  For
+    example,
+
+    </p><p></p><pre class=3D"jsim">CMOVE(1, r0)     // wait on semaphore #1
+Wait()
+// execution resumes here only after the WAIT succeeds</pre>
+
+    <p>Add the appropriate <tt>Signal()</tt> and <tt>Wait()</tt> SVC
+    calls to processes 0, 1, and 2 so that once a process starts to
+    print on the console, all the other processes must wait until the
+    printout is complete.
+
+ =20
+
+
+</p>
+
+    <div class=3D"footer" style=3D"font-size: small;">
+    <p></p><hr><p>
+    <!---->
+
+    <br>
+    Copyright =C2=A9 2015-2017 M.I.T. Department of Electrical Engineering =
+and Computer Science
+
+    <br>
+    Your use of this site and materials is subject to our
+    <a href=3D"https://computationstructures.org/terms.html">terms of use</=
+a>.
+</p></div>
+
+  </div>
+
+
+</body></html>
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-01ad9edf-9117-4406-b0ca-3ea553a05cd6@mhtml.blink
+
+@charset "utf-8";
+
+.MathJax_Hover_Frame { border-radius: 0.25em; box-shadow: rgb(136, 51, 170)=
+ 0px 0px 15px; display: inline-block; position: absolute; border: 1px solid=
+ rgb(170, 102, 221) !important; }
+
+.MathJax_Menu_Button .MathJax_Hover_Arrow { position: absolute; cursor: poi=
+nter; display: inline-block; border: 2px solid rgb(170, 170, 170); border-r=
+adius: 4px; font-family: "Courier New", Courier; font-size: 9px; color: rgb=
+(240, 240, 240); }
+
+.MathJax_Menu_Button .MathJax_Hover_Arrow span { display: block; background=
+-color: rgb(170, 170, 170); border: 1px solid; border-radius: 3px; line-hei=
+ght: 0; padding: 4px; }
+
+.MathJax_Hover_Arrow:hover { color: white !important; border: 2px solid rgb=
+(204, 204, 204) !important; }
+
+.MathJax_Hover_Arrow:hover span { background-color: rgb(204, 204, 204) !imp=
+ortant; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-dc4a5673-6e42-4f40-a62c-ad35f867509c@mhtml.blink
+
+@charset "utf-8";
+
+#MathJax_About { position: fixed; left: 50%; width: auto; text-align: cente=
+r; border: 3px outset; padding: 1em 2em; background-color: rgb(221, 221, 22=
+1); color: black; cursor: default; font-family: message-box; font-size: 120=
+%; font-style: normal; text-indent: 0px; text-transform: none; line-height:=
+ normal; letter-spacing: normal; word-spacing: normal; overflow-wrap: norma=
+l; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; box=
+-shadow: rgb(128, 128, 128) 0px 10px 20px; }
+
+#MathJax_About.MathJax_MousePost { outline: none; }
+
+.MathJax_Menu { position: absolute; background-color: white; color: black; =
+width: auto; padding: 5px 0px; border: 1px solid rgb(204, 204, 204); margin=
+: 0px; cursor: default; font-style: ; font-variant: normal; font-weight: ; =
+font-stretch: ; font-size: ; font-family: ; text-align: left; text-indent: =
+0px; text-transform: none; line-height: normal; letter-spacing: normal; wor=
+d-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none;=
+ z-index: 201; border-radius: 5px; box-shadow: rgb(128, 128, 128) 0px 10px =
+20px; }
+
+.MathJax_MenuItem { padding: 1px 2em; background: transparent; }
+
+.MathJax_MenuArrow { position: absolute; right: 0.5em; padding-top: 0.25em;=
+ color: rgb(102, 102, 102); font-size: 0.75em; }
+
+.MathJax_MenuActive .MathJax_MenuArrow { color: white; }
+
+.MathJax_MenuArrow.RTL { left: 0.5em; right: auto; }
+
+.MathJax_MenuCheck { position: absolute; left: 0.7em; }
+
+.MathJax_MenuCheck.RTL { right: 0.7em; left: auto; }
+
+.MathJax_MenuRadioCheck { position: absolute; left: 0.7em; }
+
+.MathJax_MenuRadioCheck.RTL { right: 0.7em; left: auto; }
+
+.MathJax_MenuLabel { padding: 1px 2em 3px 1.33em; font-style: italic; }
+
+.MathJax_MenuRule { border-top: 1px solid rgb(221, 221, 221); margin: 4px 3=
+px; }
+
+.MathJax_MenuDisabled { color: graytext; }
+
+.MathJax_MenuActive { background-color: rgb(96, 104, 114); color: white; }
+
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus { background-color: r=
+gb(232, 232, 232); }
+
+.MathJax_ContextMenu:focus { outline: none; }
+
+.MathJax_ContextMenu .MathJax_MenuItem:focus { outline: none; }
+
+#MathJax_AboutClose { top: 0.2em; right: 0.2em; }
+
+.MathJax_Menu .MathJax_MenuClose { top: -10px; left: -10px; }
+
+.MathJax_MenuClose { position: absolute; cursor: pointer; display: inline-b=
+lock; border: 2px solid rgb(170, 170, 170); border-radius: 18px; font-famil=
+y: "Courier New", Courier; font-size: 24px; color: rgb(240, 240, 240); }
+
+.MathJax_MenuClose span { display: block; background-color: rgb(170, 170, 1=
+70); border: 1.5px solid; border-radius: 18px; line-height: 0; padding: 8px=
+ 0px 6px; }
+
+.MathJax_MenuClose:hover { color: white !important; border: 2px solid rgb(2=
+04, 204, 204) !important; }
+
+.MathJax_MenuClose:hover span { background-color: rgb(204, 204, 204) !impor=
+tant; }
+
+.MathJax_MenuClose:hover:focus { outline: none; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b0694215-56b2-4e5c-97af-288d2f891ff5@mhtml.blink
+
+@charset "utf-8";
+
+.MathJax_Preview .MJXf-math { color: inherit !important; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-1d562391-0356-4cac-9160-806c2f0bfc90@mhtml.blink
+
+@charset "utf-8";
+
+.MJX_Assistive_MathML { top: 0px; left: 0px; clip: rect(1px, 1px, 1px, 1px)=
+; user-select: none; position: absolute !important; padding: 1px 0px 0px !i=
+mportant; border: 0px !important; height: 1px !important; width: 1px !impor=
+tant; overflow: hidden !important; display: block !important; }
+
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block { width: 100% !important; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-bbe278cc-c804-4df9-9d88-e4e7da7f3e0e@mhtml.blink
+
+@charset "utf-8";
+
+#MathJax_Zoom { position: absolute; background-color: rgb(240, 240, 240); o=
+verflow: auto; display: block; z-index: 301; padding: 0.5em; border: 1px so=
+lid black; margin: 0px; font-weight: normal; font-style: normal; text-align=
+: left; text-indent: 0px; text-transform: none; line-height: normal; letter=
+-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space:=
+ nowrap; float: none; box-sizing: content-box; box-shadow: rgb(170, 170, 17=
+0) 5px 5px 15px; }
+
+#MathJax_ZoomOverlay { position: absolute; left: 0px; top: 0px; z-index: 30=
+0; display: inline-block; width: 100%; height: 100%; border: 0px; padding: =
+0px; margin: 0px; background-color: white; opacity: 0; }
+
+#MathJax_ZoomFrame { position: relative; display: inline-block; height: 0px=
+; width: 0px; }
+
+#MathJax_ZoomEventTrap { position: absolute; left: 0px; top: 0px; z-index: =
+302; display: inline-block; border: 0px; padding: 0px; margin: 0px; backgro=
+und-color: white; opacity: 0; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-93319e14-24ed-42f7-9dc1-1c32e066022d@mhtml.blink
+
+@charset "utf-8";
+
+.MathJax_Preview { color: rgb(136, 136, 136); }
+
+#MathJax_Message { position: fixed; left: 1em; bottom: 1.5em; background-co=
+lor: rgb(230, 230, 230); border: 1px solid rgb(149, 149, 149); margin: 0px;=
+ padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto;=
+ white-space: nowrap; }
+
+#MathJax_MSIE_Frame { position: absolute; top: 0px; left: 0px; width: 0px; =
+z-index: 101; border: 0px; margin: 0px; padding: 0px; }
+
+.MathJax_Error { color: rgb(204, 0, 0); font-style: italic; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-26732337-3e78-4e99-ab30-bd56882ccf3f@mhtml.blink
+
+@charset "utf-8";
+
+.MJXp-script { font-size: 0.8em; }
+
+.MJXp-right { transform-origin: right center; }
+
+.MJXp-bold { font-weight: bold; }
+
+.MJXp-italic { font-style: italic; }
+
+.MJXp-scr { font-family: MathJax_Script, "Times New Roman", Times, STIXGene=
+ral, serif; }
+
+.MJXp-frak { font-family: MathJax_Fraktur, "Times New Roman", Times, STIXGe=
+neral, serif; }
+
+.MJXp-sf { font-family: MathJax_SansSerif, "Times New Roman", Times, STIXGe=
+neral, serif; }
+
+.MJXp-cal { font-family: MathJax_Caligraphic, "Times New Roman", Times, STI=
+XGeneral, serif; }
+
+.MJXp-mono { font-family: MathJax_Typewriter, "Times New Roman", Times, STI=
+XGeneral, serif; }
+
+.MJXp-largeop { font-size: 150%; }
+
+.MJXp-largeop.MJXp-int { vertical-align: -0.2em; }
+
+.MJXp-math { display: inline-block; line-height: 1.2; text-indent: 0px; fon=
+t-family: "Times New Roman", Times, STIXGeneral, serif; white-space: nowrap=
+; border-collapse: collapse; }
+
+.MJXp-display { display: block; text-align: center; margin: 1em 0px; }
+
+.MJXp-math span { display: inline-block; }
+
+.MJXp-box { text-align: center; display: block !important; }
+
+.MJXp-box::after { content: " "; }
+
+.MJXp-rule { margin-top: 0.1em; display: block !important; }
+
+.MJXp-char { display: block !important; }
+
+.MJXp-mo { margin: 0px 0.15em; }
+
+.MJXp-mfrac { margin: 0px 0.125em; vertical-align: 0.25em; }
+
+.MJXp-denom { width: 100%; display: inline-table !important; }
+
+.MJXp-denom > * { display: table-row !important; }
+
+.MJXp-surd { vertical-align: top; }
+
+.MJXp-surd > * { display: block !important; }
+
+.MJXp-script-box > * { height: 50%; display: table !important; }
+
+.MJXp-script-box > * > * { vertical-align: top; display: table-cell !import=
+ant; }
+
+.MJXp-script-box > :last-child > * { vertical-align: bottom; }
+
+.MJXp-script-box > * > * > * { display: block !important; }
+
+.MJXp-mphantom { visibility: hidden; }
+
+.MJXp-munderover { display: inline-table !important; }
+
+.MJXp-over { text-align: center; display: inline-block !important; }
+
+.MJXp-over > * { display: block !important; }
+
+.MJXp-munderover > * { display: table-row !important; }
+
+.MJXp-mtable { vertical-align: 0.25em; margin: 0px 0.125em; }
+
+.MJXp-mtable > * { vertical-align: middle; display: inline-table !important=
+; }
+
+.MJXp-mtr { display: table-row !important; }
+
+.MJXp-mtd { text-align: center; padding: 0.5em 0px 0px 0.5em; display: tabl=
+e-cell !important; }
+
+.MJXp-mtr > .MJXp-mtd:first-child { padding-left: 0px; }
+
+.MJXp-mtr:first-child > .MJXp-mtd { padding-top: 0px; }
+
+.MJXp-mlabeledtr { display: table-row !important; }
+
+.MJXp-mlabeledtr > .MJXp-mtd:first-child { padding-left: 0px; }
+
+.MJXp-mlabeledtr:first-child > .MJXp-mtd { padding-top: 0px; }
+
+.MJXp-merror { background-color: rgb(255, 255, 136); color: rgb(204, 0, 0);=
+ border: 1px solid rgb(204, 0, 0); padding: 1px 3px; font-style: normal; fo=
+nt-size: 90%; }
+
+.MJXp-scale0 { transform: scaleX(0); }
+
+.MJXp-scale1 { transform: scaleX(0.1); }
+
+.MJXp-scale2 { transform: scaleX(0.2); }
+
+.MJXp-scale3 { transform: scaleX(0.3); }
+
+.MJXp-scale4 { transform: scaleX(0.4); }
+
+.MJXp-scale5 { transform: scaleX(0.5); }
+
+.MJXp-scale6 { transform: scaleX(0.6); }
+
+.MJXp-scale7 { transform: scaleX(0.7); }
+
+.MJXp-scale8 { transform: scaleX(0.8); }
+
+.MJXp-scale9 { transform: scaleX(0.9); }
+
+.MathJax_PHTML .noError { font-size: 90%; text-align: left; color: black; p=
+adding: 1px 3px; border: 1px solid; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-fd45f230-e396-4153-a757-51d10411364d@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F6pfjptAgt5VM-kVkqdyU8n1ioa2HdgregdFOFh.woff2") format("woff2"); unico=
+de-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-=
+FE2F; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F6pfjptAgt5VM-kVkqdyU8n1ioa0XdgregdFOFh.woff2") format("woff2"); unico=
+de-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F6pfjptAgt5VM-kVkqdyU8n1ioa2ndgregdFOFh.woff2") format("woff2"); unico=
+de-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0,=
+ U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F6pfjptAgt5VM-kVkqdyU8n1ioa23dgregdFOFh.woff2") format("woff2"); unico=
+de-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, =
+U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F6pfjptAgt5VM-kVkqdyU8n1ioa1XdgregdFA.woff2") format("woff2"); unicode=
+-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-20=
+6F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;=
+ }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F63fjptAgt5VM-kVkqdyU8n1iIq131nj-otFQ.woff2") format("woff2"); unicode=
+-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE=
+2F; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F63fjptAgt5VM-kVkqdyU8n1isq131nj-otFQ.woff2") format("woff2"); unicode=
+-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F63fjptAgt5VM-kVkqdyU8n1iAq131nj-otFQ.woff2") format("woff2"); unicode=
+-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U=
++1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F63fjptAgt5VM-kVkqdyU8n1iEq131nj-otFQ.woff2") format("woff2"); unicode=
+-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+=
+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexmono=
+/v7/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2") format("woff2"); unicode-ra=
+nge: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F,=
+ U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZGUdLBDGN9yT0.woff2") format("woff2"); un=
+icode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE=
+2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZPUdLBDGN9yT0.woff2") format("woff2"); un=
+icode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZIUdLBDGN9yT0.woff2") format("woff2"); un=
+icode-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZEUdLBDGN9yT0.woff2") format("woff2"); un=
+icode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1=
+B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZFUdLBDGN9yT0.woff2") format("woff2"); un=
+icode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C=
+F, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX8KVElMYYaJe8bpLHnCwDKhdTmdJZLUdLBDGN9.woff2") format("woff2"); unico=
+de-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-=
+206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFF=
+D; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuGqZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-=
+FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuE6ZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuFKZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuGKZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0,=
+ U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuGaZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, =
+U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKhdTuF6ZJW9XjDg.woff2") format("woff2"); unicode=
+-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-20=
+6F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;=
+ }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINce_fuJGl18QRY.woff2") format("woff2"); u=
+nicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+F=
+E2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINccvfuJGl18QRY.woff2") format("woff2"); u=
+nicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINcdffuJGl18QRY.woff2") format("woff2"); u=
+nicode-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINceffuJGl18QRY.woff2") format("woff2"); u=
+nicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-=
+1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINcePfuJGl18QRY.woff2") format("woff2"); u=
+nicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20=
+CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINcdvfuJGl18Q.woff2") format("woff2"); uni=
+code-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+200=
+0-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuGqZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-=
+FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuE6ZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuFKZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuGKZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0,=
+ U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuGaZJW9XjDlN8.woff2") format("woff2"); unico=
+de-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, =
+U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 100; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX-KVElMYYaJe8bpLHnCwDKjbLuF6ZJW9XjDg.woff2") format("woff2"); unicode=
+-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-20=
+6F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;=
+ }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhdzeFaxOedfTDw.woff2") format("woff2"); unicode=
+-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE=
+2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhdXeFaxOedfTDw.woff2") format("woff2"); unicode=
+-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhdLeFaxOedfTDw.woff2") format("woff2"); unicode=
+-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhd7eFaxOedfTDw.woff2") format("woff2"); unicode=
+-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U=
++1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhd_eFaxOedfTDw.woff2") format("woff2"); unicode=
+-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+=
+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYXgKVElMYYaJe8bpLHnCwDKhdHeFaxOedc.woff2") format("woff2"); unicode-ra=
+nge: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F,=
+ U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIxsdP3pBmtF8A.woff2") format("woff2"); uni=
+code-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2=
+E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIVsdP3pBmtF8A.woff2") format("woff2"); uni=
+code-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIJsdP3pBmtF8A.woff2") format("woff2"); uni=
+code-range: U+370-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AI5sdP3pBmtF8A.woff2") format("woff2"); uni=
+code-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B=
+0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AI9sdP3pBmtF8A.woff2") format("woff2"); uni=
+code-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF=
+, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexsans=
+/v9/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIFsdP3pBms.woff2") format("woff2"); unicod=
+e-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-2=
+06F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD=
+; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8nN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYas-KHLgKkPHhKA=
+Bg.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, =
+U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8nN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYas-KPLgKkPHhKA=
+Bg.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129,=
+ U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8nN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYas-KLLgKkPHhKA=
+Bg.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U=
++2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8nN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYas-KzLgKkPHhI.=
+woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC=
+, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,=
+ U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8lN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYakyK7Bh4sNLhM.=
+woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2=
+DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8lN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYamyK7Bh4sNLhM.=
+woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+=
+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8lN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYanyK7Bh4sNLhM.=
+woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+20=
+20, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; fo=
+nt-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/i=
+bmplexsanscondensed/v8/Gg8lN4UfRSqiPg7Jn2ZI12V4DCEwkj1E4LVeHYapyK7Bh4sN.wof=
+f2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U=
++2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+=
+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: italic; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizBREVNn1dOx-zrZ2X3pZvkTiUa6zgTjnTLgNuZ5w.woff2") format("woff2"); =
+unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+=
+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: italic; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizBREVNn1dOx-zrZ2X3pZvkTiUa6zETjnTLgNuZ5w.woff2") format("woff2"); =
+unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: italic; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizBREVNn1dOx-zrZ2X3pZvkTiUa6zoTjnTLgNuZ5w.woff2") format("woff2"); =
+unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF=
+-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: italic; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizBREVNn1dOx-zrZ2X3pZvkTiUa6zsTjnTLgNuZ5w.woff2") format("woff2"); =
+unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-2=
+0CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: italic; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizBREVNn1dOx-zrZ2X3pZvkTiUa6zUTjnTLgNs.woff2") format("woff2"); uni=
+code-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+200=
+0-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizDREVNn1dOx-zrZ2X3pZvkTiUS2zcZiVbJsNo.woff2") format("woff2"); uni=
+code-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2=
+E-FE2F; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizDREVNn1dOx-zrZ2X3pZvkTiUb2zcZiVbJsNo.woff2") format("woff2"); uni=
+code-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizDREVNn1dOx-zrZ2X3pZvkTiUQ2zcZiVbJsNo.woff2") format("woff2"); uni=
+code-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B=
+0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizDREVNn1dOx-zrZ2X3pZvkTiUR2zcZiVbJsNo.woff2") format("woff2"); uni=
+code-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF=
+, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v10/jizDREVNn1dOx-zrZ2X3pZvkTiUf2zcZiVbJ.woff2") format("woff2"); unicod=
+e-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-2=
+06F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD=
+; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://computationstructures.org/tools/font-awesome.css
+
+@charset "utf-8";
+
+@font-face { font-family: FontAwesome; src: url("fontawesome-webfont.eot?#i=
+efix&v=3D4.3.0") format("embedded-opentype"), url("fontawesome-webfont.woff=
+2?v=3D4.3.0") format("woff2"), url("fontawesome-webfont.woff?v=3D4.3.0") fo=
+rmat("woff"), url("fontawesome-webfont.ttf?v=3D4.3.0") format("truetype"), =
+url("fontawesome-webfont.svg?v=3D4.3.0#fontawesomeregular") format("svg"); =
+font-weight: normal; font-style: normal; }
+
+.fa { display: inline-block; font-style: normal; font-variant: normal; font=
+-weight: normal; font-stretch: normal; line-height: 1; font-family: FontAwe=
+some; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: ant=
+ialiased; transform: translate(0px, 0px); }
+
+.fa-lg { font-size: 1.33333em; line-height: 0.75em; vertical-align: -15%; }
+
+.fa-2x { font-size: 2em; }
+
+.fa-3x { font-size: 3em; }
+
+.fa-4x { font-size: 4em; }
+
+.fa-5x { font-size: 5em; }
+
+.fa-fw { width: 1.28571em; text-align: center; }
+
+.fa-ul { padding-left: 0px; margin-left: 2.14286em; list-style-type: none; =
+}
+
+.fa-ul > li { position: relative; }
+
+.fa-li { position: absolute; left: -2.14286em; width: 2.14286em; top: 0.142=
+857em; text-align: center; }
+
+.fa-li.fa-lg { left: -1.85714em; }
+
+.fa-border { padding: 0.2em 0.25em 0.15em; border: 0.08em solid rgb(238, 23=
+8, 238); border-radius: 0.1em; }
+
+.pull-right { float: right; }
+
+.pull-left { float: left; }
+
+.fa.pull-left { margin-right: 0.3em; }
+
+.fa.pull-right { margin-left: 0.3em; }
+
+.fa-spin { animation: 2s linear 0s infinite normal none running fa-spin; }
+
+.fa-pulse { animation: 1s steps(8) 0s infinite normal none running fa-spin;=
+ }
+
+@-webkit-keyframes fa-spin {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@keyframes fa-spin {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+.fa-rotate-90 { transform: rotate(90deg); }
+
+.fa-rotate-180 { transform: rotate(180deg); }
+
+.fa-rotate-270 { transform: rotate(270deg); }
+
+.fa-flip-horizontal { transform: scale(-1, 1); }
+
+.fa-flip-vertical { transform: scale(1, -1); }
+
+:root .fa-rotate-90, :root .fa-rotate-180, :root .fa-rotate-270, :root .fa-=
+flip-horizontal, :root .fa-flip-vertical { filter: none; }
+
+.fa-stack { position: relative; display: inline-block; width: 2em; height: =
+2em; line-height: 2em; vertical-align: middle; }
+
+.fa-stack-1x, .fa-stack-2x { position: absolute; left: 0px; width: 100%; te=
+xt-align: center; }
+
+.fa-stack-1x { line-height: inherit; }
+
+.fa-stack-2x { font-size: 2em; }
+
+.fa-inverse { color: rgb(255, 255, 255); }
+
+.fa-glass::before { content: "=EF=80=80"; }
+
+.fa-music::before { content: "=EF=80=81"; }
+
+.fa-search::before { content: "=EF=80=82"; }
+
+.fa-envelope-o::before { content: "=EF=80=83"; }
+
+.fa-heart::before { content: "=EF=80=84"; }
+
+.fa-star::before { content: "=EF=80=85"; }
+
+.fa-star-o::before { content: "=EF=80=86"; }
+
+.fa-user::before { content: "=EF=80=87"; }
+
+.fa-film::before { content: "=EF=80=88"; }
+
+.fa-th-large::before { content: "=EF=80=89"; }
+
+.fa-th::before { content: "=EF=80=8A"; }
+
+.fa-th-list::before { content: "=EF=80=8B"; }
+
+.fa-check::before { content: "=EF=80=8C"; }
+
+.fa-remove::before, .fa-close::before, .fa-times::before { content: "=EF=80=
+=8D"; }
+
+.fa-search-plus::before { content: "=EF=80=8E"; }
+
+.fa-search-minus::before { content: "=EF=80=90"; }
+
+.fa-power-off::before { content: "=EF=80=91"; }
+
+.fa-signal::before { content: "=EF=80=92"; }
+
+.fa-gear::before, .fa-cog::before { content: "=EF=80=93"; }
+
+.fa-trash-o::before { content: "=EF=80=94"; }
+
+.fa-home::before { content: "=EF=80=95"; }
+
+.fa-file-o::before { content: "=EF=80=96"; }
+
+.fa-clock-o::before { content: "=EF=80=97"; }
+
+.fa-road::before { content: "=EF=80=98"; }
+
+.fa-download::before { content: "=EF=80=99"; }
+
+.fa-arrow-circle-o-down::before { content: "=EF=80=9A"; }
+
+.fa-arrow-circle-o-up::before { content: "=EF=80=9B"; }
+
+.fa-inbox::before { content: "=EF=80=9C"; }
+
+.fa-play-circle-o::before { content: "=EF=80=9D"; }
+
+.fa-rotate-right::before, .fa-repeat::before { content: "=EF=80=9E"; }
+
+.fa-refresh::before { content: "=EF=80=A1"; }
+
+.fa-list-alt::before { content: "=EF=80=A2"; }
+
+.fa-lock::before { content: "=EF=80=A3"; }
+
+.fa-flag::before { content: "=EF=80=A4"; }
+
+.fa-headphones::before { content: "=EF=80=A5"; }
+
+.fa-volume-off::before { content: "=EF=80=A6"; }
+
+.fa-volume-down::before { content: "=EF=80=A7"; }
+
+.fa-volume-up::before { content: "=EF=80=A8"; }
+
+.fa-qrcode::before { content: "=EF=80=A9"; }
+
+.fa-barcode::before { content: "=EF=80=AA"; }
+
+.fa-tag::before { content: "=EF=80=AB"; }
+
+.fa-tags::before { content: "=EF=80=AC"; }
+
+.fa-book::before { content: "=EF=80=AD"; }
+
+.fa-bookmark::before { content: "=EF=80=AE"; }
+
+.fa-print::before { content: "=EF=80=AF"; }
+
+.fa-camera::before { content: "=EF=80=B0"; }
+
+.fa-font::before { content: "=EF=80=B1"; }
+
+.fa-bold::before { content: "=EF=80=B2"; }
+
+.fa-italic::before { content: "=EF=80=B3"; }
+
+.fa-text-height::before { content: "=EF=80=B4"; }
+
+.fa-text-width::before { content: "=EF=80=B5"; }
+
+.fa-align-left::before { content: "=EF=80=B6"; }
+
+.fa-align-center::before { content: "=EF=80=B7"; }
+
+.fa-align-right::before { content: "=EF=80=B8"; }
+
+.fa-align-justify::before { content: "=EF=80=B9"; }
+
+.fa-list::before { content: "=EF=80=BA"; }
+
+.fa-dedent::before, .fa-outdent::before { content: "=EF=80=BB"; }
+
+.fa-indent::before { content: "=EF=80=BC"; }
+
+.fa-video-camera::before { content: "=EF=80=BD"; }
+
+.fa-photo::before, .fa-image::before, .fa-picture-o::before { content: "=EF=
+=80=BE"; }
+
+.fa-pencil::before { content: "=EF=81=80"; }
+
+.fa-map-marker::before { content: "=EF=81=81"; }
+
+.fa-adjust::before { content: "=EF=81=82"; }
+
+.fa-tint::before { content: "=EF=81=83"; }
+
+.fa-edit::before, .fa-pencil-square-o::before { content: "=EF=81=84"; }
+
+.fa-share-square-o::before { content: "=EF=81=85"; }
+
+.fa-check-square-o::before { content: "=EF=81=86"; }
+
+.fa-arrows::before { content: "=EF=81=87"; }
+
+.fa-step-backward::before { content: "=EF=81=88"; }
+
+.fa-fast-backward::before { content: "=EF=81=89"; }
+
+.fa-backward::before { content: "=EF=81=8A"; }
+
+.fa-play::before { content: "=EF=81=8B"; }
+
+.fa-pause::before { content: "=EF=81=8C"; }
+
+.fa-stop::before { content: "=EF=81=8D"; }
+
+.fa-forward::before { content: "=EF=81=8E"; }
+
+.fa-fast-forward::before { content: "=EF=81=90"; }
+
+.fa-step-forward::before { content: "=EF=81=91"; }
+
+.fa-eject::before { content: "=EF=81=92"; }
+
+.fa-chevron-left::before { content: "=EF=81=93"; }
+
+.fa-chevron-right::before { content: "=EF=81=94"; }
+
+.fa-plus-circle::before { content: "=EF=81=95"; }
+
+.fa-minus-circle::before { content: "=EF=81=96"; }
+
+.fa-times-circle::before { content: "=EF=81=97"; }
+
+.fa-check-circle::before { content: "=EF=81=98"; }
+
+.fa-question-circle::before { content: "=EF=81=99"; }
+
+.fa-info-circle::before { content: "=EF=81=9A"; }
+
+.fa-crosshairs::before { content: "=EF=81=9B"; }
+
+.fa-times-circle-o::before { content: "=EF=81=9C"; }
+
+.fa-check-circle-o::before { content: "=EF=81=9D"; }
+
+.fa-ban::before { content: "=EF=81=9E"; }
+
+.fa-arrow-left::before { content: "=EF=81=A0"; }
+
+.fa-arrow-right::before { content: "=EF=81=A1"; }
+
+.fa-arrow-up::before { content: "=EF=81=A2"; }
+
+.fa-arrow-down::before { content: "=EF=81=A3"; }
+
+.fa-mail-forward::before, .fa-share::before { content: "=EF=81=A4"; }
+
+.fa-expand::before { content: "=EF=81=A5"; }
+
+.fa-compress::before { content: "=EF=81=A6"; }
+
+.fa-plus::before { content: "=EF=81=A7"; }
+
+.fa-minus::before { content: "=EF=81=A8"; }
+
+.fa-asterisk::before { content: "=EF=81=A9"; }
+
+.fa-exclamation-circle::before { content: "=EF=81=AA"; }
+
+.fa-gift::before { content: "=EF=81=AB"; }
+
+.fa-leaf::before { content: "=EF=81=AC"; }
+
+.fa-fire::before { content: "=EF=81=AD"; }
+
+.fa-eye::before { content: "=EF=81=AE"; }
+
+.fa-eye-slash::before { content: "=EF=81=B0"; }
+
+.fa-warning::before, .fa-exclamation-triangle::before { content: "=EF=81=B1=
+"; }
+
+.fa-plane::before { content: "=EF=81=B2"; }
+
+.fa-calendar::before { content: "=EF=81=B3"; }
+
+.fa-random::before { content: "=EF=81=B4"; }
+
+.fa-comment::before { content: "=EF=81=B5"; }
+
+.fa-magnet::before { content: "=EF=81=B6"; }
+
+.fa-chevron-up::before { content: "=EF=81=B7"; }
+
+.fa-chevron-down::before { content: "=EF=81=B8"; }
+
+.fa-retweet::before { content: "=EF=81=B9"; }
+
+.fa-shopping-cart::before { content: "=EF=81=BA"; }
+
+.fa-folder::before { content: "=EF=81=BB"; }
+
+.fa-folder-open::before { content: "=EF=81=BC"; }
+
+.fa-arrows-v::before { content: "=EF=81=BD"; }
+
+.fa-arrows-h::before { content: "=EF=81=BE"; }
+
+.fa-bar-chart-o::before, .fa-bar-chart::before { content: "=EF=82=80"; }
+
+.fa-twitter-square::before { content: "=EF=82=81"; }
+
+.fa-facebook-square::before { content: "=EF=82=82"; }
+
+.fa-camera-retro::before { content: "=EF=82=83"; }
+
+.fa-key::before { content: "=EF=82=84"; }
+
+.fa-gears::before, .fa-cogs::before { content: "=EF=82=85"; }
+
+.fa-comments::before { content: "=EF=82=86"; }
+
+.fa-thumbs-o-up::before { content: "=EF=82=87"; }
+
+.fa-thumbs-o-down::before { content: "=EF=82=88"; }
+
+.fa-star-half::before { content: "=EF=82=89"; }
+
+.fa-heart-o::before { content: "=EF=82=8A"; }
+
+.fa-sign-out::before { content: "=EF=82=8B"; }
+
+.fa-linkedin-square::before { content: "=EF=82=8C"; }
+
+.fa-thumb-tack::before { content: "=EF=82=8D"; }
+
+.fa-external-link::before { content: "=EF=82=8E"; }
+
+.fa-sign-in::before { content: "=EF=82=90"; }
+
+.fa-trophy::before { content: "=EF=82=91"; }
+
+.fa-github-square::before { content: "=EF=82=92"; }
+
+.fa-upload::before { content: "=EF=82=93"; }
+
+.fa-lemon-o::before { content: "=EF=82=94"; }
+
+.fa-phone::before { content: "=EF=82=95"; }
+
+.fa-square-o::before { content: "=EF=82=96"; }
+
+.fa-bookmark-o::before { content: "=EF=82=97"; }
+
+.fa-phone-square::before { content: "=EF=82=98"; }
+
+.fa-twitter::before { content: "=EF=82=99"; }
+
+.fa-facebook-f::before, .fa-facebook::before { content: "=EF=82=9A"; }
+
+.fa-github::before { content: "=EF=82=9B"; }
+
+.fa-unlock::before { content: "=EF=82=9C"; }
+
+.fa-credit-card::before { content: "=EF=82=9D"; }
+
+.fa-rss::before { content: "=EF=82=9E"; }
+
+.fa-hdd-o::before { content: "=EF=82=A0"; }
+
+.fa-bullhorn::before { content: "=EF=82=A1"; }
+
+.fa-bell::before { content: "=EF=83=B3"; }
+
+.fa-certificate::before { content: "=EF=82=A3"; }
+
+.fa-hand-o-right::before { content: "=EF=82=A4"; }
+
+.fa-hand-o-left::before { content: "=EF=82=A5"; }
+
+.fa-hand-o-up::before { content: "=EF=82=A6"; }
+
+.fa-hand-o-down::before { content: "=EF=82=A7"; }
+
+.fa-arrow-circle-left::before { content: "=EF=82=A8"; }
+
+.fa-arrow-circle-right::before { content: "=EF=82=A9"; }
+
+.fa-arrow-circle-up::before { content: "=EF=82=AA"; }
+
+.fa-arrow-circle-down::before { content: "=EF=82=AB"; }
+
+.fa-globe::before { content: "=EF=82=AC"; }
+
+.fa-wrench::before { content: "=EF=82=AD"; }
+
+.fa-tasks::before { content: "=EF=82=AE"; }
+
+.fa-filter::before { content: "=EF=82=B0"; }
+
+.fa-briefcase::before { content: "=EF=82=B1"; }
+
+.fa-arrows-alt::before { content: "=EF=82=B2"; }
+
+.fa-group::before, .fa-users::before { content: "=EF=83=80"; }
+
+.fa-chain::before, .fa-link::before { content: "=EF=83=81"; }
+
+.fa-cloud::before { content: "=EF=83=82"; }
+
+.fa-flask::before { content: "=EF=83=83"; }
+
+.fa-cut::before, .fa-scissors::before { content: "=EF=83=84"; }
+
+.fa-copy::before, .fa-files-o::before { content: "=EF=83=85"; }
+
+.fa-paperclip::before { content: "=EF=83=86"; }
+
+.fa-save::before, .fa-floppy-o::before { content: "=EF=83=87"; }
+
+.fa-square::before { content: "=EF=83=88"; }
+
+.fa-navicon::before, .fa-reorder::before, .fa-bars::before { content: "=EF=
+=83=89"; }
+
+.fa-list-ul::before { content: "=EF=83=8A"; }
+
+.fa-list-ol::before { content: "=EF=83=8B"; }
+
+.fa-strikethrough::before { content: "=EF=83=8C"; }
+
+.fa-underline::before { content: "=EF=83=8D"; }
+
+.fa-table::before { content: "=EF=83=8E"; }
+
+.fa-magic::before { content: "=EF=83=90"; }
+
+.fa-truck::before { content: "=EF=83=91"; }
+
+.fa-pinterest::before { content: "=EF=83=92"; }
+
+.fa-pinterest-square::before { content: "=EF=83=93"; }
+
+.fa-google-plus-square::before { content: "=EF=83=94"; }
+
+.fa-google-plus::before { content: "=EF=83=95"; }
+
+.fa-money::before { content: "=EF=83=96"; }
+
+.fa-caret-down::before { content: "=EF=83=97"; }
+
+.fa-caret-up::before { content: "=EF=83=98"; }
+
+.fa-caret-left::before { content: "=EF=83=99"; }
+
+.fa-caret-right::before { content: "=EF=83=9A"; }
+
+.fa-columns::before { content: "=EF=83=9B"; }
+
+.fa-unsorted::before, .fa-sort::before { content: "=EF=83=9C"; }
+
+.fa-sort-down::before, .fa-sort-desc::before { content: "=EF=83=9D"; }
+
+.fa-sort-up::before, .fa-sort-asc::before { content: "=EF=83=9E"; }
+
+.fa-envelope::before { content: "=EF=83=A0"; }
+
+.fa-linkedin::before { content: "=EF=83=A1"; }
+
+.fa-rotate-left::before, .fa-undo::before { content: "=EF=83=A2"; }
+
+.fa-legal::before, .fa-gavel::before { content: "=EF=83=A3"; }
+
+.fa-dashboard::before, .fa-tachometer::before { content: "=EF=83=A4"; }
+
+.fa-comment-o::before { content: "=EF=83=A5"; }
+
+.fa-comments-o::before { content: "=EF=83=A6"; }
+
+.fa-flash::before, .fa-bolt::before { content: "=EF=83=A7"; }
+
+.fa-sitemap::before { content: "=EF=83=A8"; }
+
+.fa-umbrella::before { content: "=EF=83=A9"; }
+
+.fa-paste::before, .fa-clipboard::before { content: "=EF=83=AA"; }
+
+.fa-lightbulb-o::before { content: "=EF=83=AB"; }
+
+.fa-exchange::before { content: "=EF=83=AC"; }
+
+.fa-cloud-download::before { content: "=EF=83=AD"; }
+
+.fa-cloud-upload::before { content: "=EF=83=AE"; }
+
+.fa-user-md::before { content: "=EF=83=B0"; }
+
+.fa-stethoscope::before { content: "=EF=83=B1"; }
+
+.fa-suitcase::before { content: "=EF=83=B2"; }
+
+.fa-bell-o::before { content: "=EF=82=A2"; }
+
+.fa-coffee::before { content: "=EF=83=B4"; }
+
+.fa-cutlery::before { content: "=EF=83=B5"; }
+
+.fa-file-text-o::before { content: "=EF=83=B6"; }
+
+.fa-building-o::before { content: "=EF=83=B7"; }
+
+.fa-hospital-o::before { content: "=EF=83=B8"; }
+
+.fa-ambulance::before { content: "=EF=83=B9"; }
+
+.fa-medkit::before { content: "=EF=83=BA"; }
+
+.fa-fighter-jet::before { content: "=EF=83=BB"; }
+
+.fa-beer::before { content: "=EF=83=BC"; }
+
+.fa-h-square::before { content: "=EF=83=BD"; }
+
+.fa-plus-square::before { content: "=EF=83=BE"; }
+
+.fa-angle-double-left::before { content: "=EF=84=80"; }
+
+.fa-angle-double-right::before { content: "=EF=84=81"; }
+
+.fa-angle-double-up::before { content: "=EF=84=82"; }
+
+.fa-angle-double-down::before { content: "=EF=84=83"; }
+
+.fa-angle-left::before { content: "=EF=84=84"; }
+
+.fa-angle-right::before { content: "=EF=84=85"; }
+
+.fa-angle-up::before { content: "=EF=84=86"; }
+
+.fa-angle-down::before { content: "=EF=84=87"; }
+
+.fa-desktop::before { content: "=EF=84=88"; }
+
+.fa-laptop::before { content: "=EF=84=89"; }
+
+.fa-tablet::before { content: "=EF=84=8A"; }
+
+.fa-mobile-phone::before, .fa-mobile::before { content: "=EF=84=8B"; }
+
+.fa-circle-o::before { content: "=EF=84=8C"; }
+
+.fa-quote-left::before { content: "=EF=84=8D"; }
+
+.fa-quote-right::before { content: "=EF=84=8E"; }
+
+.fa-spinner::before { content: "=EF=84=90"; }
+
+.fa-circle::before { content: "=EF=84=91"; }
+
+.fa-mail-reply::before, .fa-reply::before { content: "=EF=84=92"; }
+
+.fa-github-alt::before { content: "=EF=84=93"; }
+
+.fa-folder-o::before { content: "=EF=84=94"; }
+
+.fa-folder-open-o::before { content: "=EF=84=95"; }
+
+.fa-smile-o::before { content: "=EF=84=98"; }
+
+.fa-frown-o::before { content: "=EF=84=99"; }
+
+.fa-meh-o::before { content: "=EF=84=9A"; }
+
+.fa-gamepad::before { content: "=EF=84=9B"; }
+
+.fa-keyboard-o::before { content: "=EF=84=9C"; }
+
+.fa-flag-o::before { content: "=EF=84=9D"; }
+
+.fa-flag-checkered::before { content: "=EF=84=9E"; }
+
+.fa-terminal::before { content: "=EF=84=A0"; }
+
+.fa-code::before { content: "=EF=84=A1"; }
+
+.fa-mail-reply-all::before, .fa-reply-all::before { content: "=EF=84=A2"; }
+
+.fa-star-half-empty::before, .fa-star-half-full::before, .fa-star-half-o::b=
+efore { content: "=EF=84=A3"; }
+
+.fa-location-arrow::before { content: "=EF=84=A4"; }
+
+.fa-crop::before { content: "=EF=84=A5"; }
+
+.fa-code-fork::before { content: "=EF=84=A6"; }
+
+.fa-unlink::before, .fa-chain-broken::before { content: "=EF=84=A7"; }
+
+.fa-question::before { content: "=EF=84=A8"; }
+
+.fa-info::before { content: "=EF=84=A9"; }
+
+.fa-exclamation::before { content: "=EF=84=AA"; }
+
+.fa-superscript::before { content: "=EF=84=AB"; }
+
+.fa-subscript::before { content: "=EF=84=AC"; }
+
+.fa-eraser::before { content: "=EF=84=AD"; }
+
+.fa-puzzle-piece::before { content: "=EF=84=AE"; }
+
+.fa-microphone::before { content: "=EF=84=B0"; }
+
+.fa-microphone-slash::before { content: "=EF=84=B1"; }
+
+.fa-shield::before { content: "=EF=84=B2"; }
+
+.fa-calendar-o::before { content: "=EF=84=B3"; }
+
+.fa-fire-extinguisher::before { content: "=EF=84=B4"; }
+
+.fa-rocket::before { content: "=EF=84=B5"; }
+
+.fa-maxcdn::before { content: "=EF=84=B6"; }
+
+.fa-chevron-circle-left::before { content: "=EF=84=B7"; }
+
+.fa-chevron-circle-right::before { content: "=EF=84=B8"; }
+
+.fa-chevron-circle-up::before { content: "=EF=84=B9"; }
+
+.fa-chevron-circle-down::before { content: "=EF=84=BA"; }
+
+.fa-html5::before { content: "=EF=84=BB"; }
+
+.fa-css3::before { content: "=EF=84=BC"; }
+
+.fa-anchor::before { content: "=EF=84=BD"; }
+
+.fa-unlock-alt::before { content: "=EF=84=BE"; }
+
+.fa-bullseye::before { content: "=EF=85=80"; }
+
+.fa-ellipsis-h::before { content: "=EF=85=81"; }
+
+.fa-ellipsis-v::before { content: "=EF=85=82"; }
+
+.fa-rss-square::before { content: "=EF=85=83"; }
+
+.fa-play-circle::before { content: "=EF=85=84"; }
+
+.fa-ticket::before { content: "=EF=85=85"; }
+
+.fa-minus-square::before { content: "=EF=85=86"; }
+
+.fa-minus-square-o::before { content: "=EF=85=87"; }
+
+.fa-level-up::before { content: "=EF=85=88"; }
+
+.fa-level-down::before { content: "=EF=85=89"; }
+
+.fa-check-square::before { content: "=EF=85=8A"; }
+
+.fa-pencil-square::before { content: "=EF=85=8B"; }
+
+.fa-external-link-square::before { content: "=EF=85=8C"; }
+
+.fa-share-square::before { content: "=EF=85=8D"; }
+
+.fa-compass::before { content: "=EF=85=8E"; }
+
+.fa-toggle-down::before, .fa-caret-square-o-down::before { content: "=EF=85=
+=90"; }
+
+.fa-toggle-up::before, .fa-caret-square-o-up::before { content: "=EF=85=91"=
+; }
+
+.fa-toggle-right::before, .fa-caret-square-o-right::before { content: "=EF=
+=85=92"; }
+
+.fa-euro::before, .fa-eur::before { content: "=EF=85=93"; }
+
+.fa-gbp::before { content: "=EF=85=94"; }
+
+.fa-dollar::before, .fa-usd::before { content: "=EF=85=95"; }
+
+.fa-rupee::before, .fa-inr::before { content: "=EF=85=96"; }
+
+.fa-cny::before, .fa-rmb::before, .fa-yen::before, .fa-jpy::before { conten=
+t: "=EF=85=97"; }
+
+.fa-ruble::before, .fa-rouble::before, .fa-rub::before { content: "=EF=85=
+=98"; }
+
+.fa-won::before, .fa-krw::before { content: "=EF=85=99"; }
+
+.fa-bitcoin::before, .fa-btc::before { content: "=EF=85=9A"; }
+
+.fa-file::before { content: "=EF=85=9B"; }
+
+.fa-file-text::before { content: "=EF=85=9C"; }
+
+.fa-sort-alpha-asc::before { content: "=EF=85=9D"; }
+
+.fa-sort-alpha-desc::before { content: "=EF=85=9E"; }
+
+.fa-sort-amount-asc::before { content: "=EF=85=A0"; }
+
+.fa-sort-amount-desc::before { content: "=EF=85=A1"; }
+
+.fa-sort-numeric-asc::before { content: "=EF=85=A2"; }
+
+.fa-sort-numeric-desc::before { content: "=EF=85=A3"; }
+
+.fa-thumbs-up::before { content: "=EF=85=A4"; }
+
+.fa-thumbs-down::before { content: "=EF=85=A5"; }
+
+.fa-youtube-square::before { content: "=EF=85=A6"; }
+
+.fa-youtube::before { content: "=EF=85=A7"; }
+
+.fa-xing::before { content: "=EF=85=A8"; }
+
+.fa-xing-square::before { content: "=EF=85=A9"; }
+
+.fa-youtube-play::before { content: "=EF=85=AA"; }
+
+.fa-dropbox::before { content: "=EF=85=AB"; }
+
+.fa-stack-overflow::before { content: "=EF=85=AC"; }
+
+.fa-instagram::before { content: "=EF=85=AD"; }
+
+.fa-flickr::before { content: "=EF=85=AE"; }
+
+.fa-adn::before { content: "=EF=85=B0"; }
+
+.fa-bitbucket::before { content: "=EF=85=B1"; }
+
+.fa-bitbucket-square::before { content: "=EF=85=B2"; }
+
+.fa-tumblr::before { content: "=EF=85=B3"; }
+
+.fa-tumblr-square::before { content: "=EF=85=B4"; }
+
+.fa-long-arrow-down::before { content: "=EF=85=B5"; }
+
+.fa-long-arrow-up::before { content: "=EF=85=B6"; }
+
+.fa-long-arrow-left::before { content: "=EF=85=B7"; }
+
+.fa-long-arrow-right::before { content: "=EF=85=B8"; }
+
+.fa-apple::before { content: "=EF=85=B9"; }
+
+.fa-windows::before { content: "=EF=85=BA"; }
+
+.fa-android::before { content: "=EF=85=BB"; }
+
+.fa-linux::before { content: "=EF=85=BC"; }
+
+.fa-dribbble::before { content: "=EF=85=BD"; }
+
+.fa-skype::before { content: "=EF=85=BE"; }
+
+.fa-foursquare::before { content: "=EF=86=80"; }
+
+.fa-trello::before { content: "=EF=86=81"; }
+
+.fa-female::before { content: "=EF=86=82"; }
+
+.fa-male::before { content: "=EF=86=83"; }
+
+.fa-gittip::before, .fa-gratipay::before { content: "=EF=86=84"; }
+
+.fa-sun-o::before { content: "=EF=86=85"; }
+
+.fa-moon-o::before { content: "=EF=86=86"; }
+
+.fa-archive::before { content: "=EF=86=87"; }
+
+.fa-bug::before { content: "=EF=86=88"; }
+
+.fa-vk::before { content: "=EF=86=89"; }
+
+.fa-weibo::before { content: "=EF=86=8A"; }
+
+.fa-renren::before { content: "=EF=86=8B"; }
+
+.fa-pagelines::before { content: "=EF=86=8C"; }
+
+.fa-stack-exchange::before { content: "=EF=86=8D"; }
+
+.fa-arrow-circle-o-right::before { content: "=EF=86=8E"; }
+
+.fa-arrow-circle-o-left::before { content: "=EF=86=90"; }
+
+.fa-toggle-left::before, .fa-caret-square-o-left::before { content: "=EF=86=
+=91"; }
+
+.fa-dot-circle-o::before { content: "=EF=86=92"; }
+
+.fa-wheelchair::before { content: "=EF=86=93"; }
+
+.fa-vimeo-square::before { content: "=EF=86=94"; }
+
+.fa-turkish-lira::before, .fa-try::before { content: "=EF=86=95"; }
+
+.fa-plus-square-o::before { content: "=EF=86=96"; }
+
+.fa-space-shuttle::before { content: "=EF=86=97"; }
+
+.fa-slack::before { content: "=EF=86=98"; }
+
+.fa-envelope-square::before { content: "=EF=86=99"; }
+
+.fa-wordpress::before { content: "=EF=86=9A"; }
+
+.fa-openid::before { content: "=EF=86=9B"; }
+
+.fa-institution::before, .fa-bank::before, .fa-university::before { content=
+: "=EF=86=9C"; }
+
+.fa-mortar-board::before, .fa-graduation-cap::before { content: "=EF=86=9D"=
+; }
+
+.fa-yahoo::before { content: "=EF=86=9E"; }
+
+.fa-google::before { content: "=EF=86=A0"; }
+
+.fa-reddit::before { content: "=EF=86=A1"; }
+
+.fa-reddit-square::before { content: "=EF=86=A2"; }
+
+.fa-stumbleupon-circle::before { content: "=EF=86=A3"; }
+
+.fa-stumbleupon::before { content: "=EF=86=A4"; }
+
+.fa-delicious::before { content: "=EF=86=A5"; }
+
+.fa-digg::before { content: "=EF=86=A6"; }
+
+.fa-pied-piper::before { content: "=EF=86=A7"; }
+
+.fa-pied-piper-alt::before { content: "=EF=86=A8"; }
+
+.fa-drupal::before { content: "=EF=86=A9"; }
+
+.fa-joomla::before { content: "=EF=86=AA"; }
+
+.fa-language::before { content: "=EF=86=AB"; }
+
+.fa-fax::before { content: "=EF=86=AC"; }
+
+.fa-building::before { content: "=EF=86=AD"; }
+
+.fa-child::before { content: "=EF=86=AE"; }
+
+.fa-paw::before { content: "=EF=86=B0"; }
+
+.fa-spoon::before { content: "=EF=86=B1"; }
+
+.fa-cube::before { content: "=EF=86=B2"; }
+
+.fa-cubes::before { content: "=EF=86=B3"; }
+
+.fa-behance::before { content: "=EF=86=B4"; }
+
+.fa-behance-square::before { content: "=EF=86=B5"; }
+
+.fa-steam::before { content: "=EF=86=B6"; }
+
+.fa-steam-square::before { content: "=EF=86=B7"; }
+
+.fa-recycle::before { content: "=EF=86=B8"; }
+
+.fa-automobile::before, .fa-car::before { content: "=EF=86=B9"; }
+
+.fa-cab::before, .fa-taxi::before { content: "=EF=86=BA"; }
+
+.fa-tree::before { content: "=EF=86=BB"; }
+
+.fa-spotify::before { content: "=EF=86=BC"; }
+
+.fa-deviantart::before { content: "=EF=86=BD"; }
+
+.fa-soundcloud::before { content: "=EF=86=BE"; }
+
+.fa-database::before { content: "=EF=87=80"; }
+
+.fa-file-pdf-o::before { content: "=EF=87=81"; }
+
+.fa-file-word-o::before { content: "=EF=87=82"; }
+
+.fa-file-excel-o::before { content: "=EF=87=83"; }
+
+.fa-file-powerpoint-o::before { content: "=EF=87=84"; }
+
+.fa-file-photo-o::before, .fa-file-picture-o::before, .fa-file-image-o::bef=
+ore { content: "=EF=87=85"; }
+
+.fa-file-zip-o::before, .fa-file-archive-o::before { content: "=EF=87=86"; =
+}
+
+.fa-file-sound-o::before, .fa-file-audio-o::before { content: "=EF=87=87"; =
+}
+
+.fa-file-movie-o::before, .fa-file-video-o::before { content: "=EF=87=88"; =
+}
+
+.fa-file-code-o::before { content: "=EF=87=89"; }
+
+.fa-vine::before { content: "=EF=87=8A"; }
+
+.fa-codepen::before { content: "=EF=87=8B"; }
+
+.fa-jsfiddle::before { content: "=EF=87=8C"; }
+
+.fa-life-bouy::before, .fa-life-buoy::before, .fa-life-saver::before, .fa-s=
+upport::before, .fa-life-ring::before { content: "=EF=87=8D"; }
+
+.fa-circle-o-notch::before { content: "=EF=87=8E"; }
+
+.fa-ra::before, .fa-rebel::before { content: "=EF=87=90"; }
+
+.fa-ge::before, .fa-empire::before { content: "=EF=87=91"; }
+
+.fa-git-square::before { content: "=EF=87=92"; }
+
+.fa-git::before { content: "=EF=87=93"; }
+
+.fa-hacker-news::before { content: "=EF=87=94"; }
+
+.fa-tencent-weibo::before { content: "=EF=87=95"; }
+
+.fa-qq::before { content: "=EF=87=96"; }
+
+.fa-wechat::before, .fa-weixin::before { content: "=EF=87=97"; }
+
+.fa-send::before, .fa-paper-plane::before { content: "=EF=87=98"; }
+
+.fa-send-o::before, .fa-paper-plane-o::before { content: "=EF=87=99"; }
+
+.fa-history::before { content: "=EF=87=9A"; }
+
+.fa-genderless::before, .fa-circle-thin::before { content: "=EF=87=9B"; }
+
+.fa-header::before { content: "=EF=87=9C"; }
+
+.fa-paragraph::before { content: "=EF=87=9D"; }
+
+.fa-sliders::before { content: "=EF=87=9E"; }
+
+.fa-share-alt::before { content: "=EF=87=A0"; }
+
+.fa-share-alt-square::before { content: "=EF=87=A1"; }
+
+.fa-bomb::before { content: "=EF=87=A2"; }
+
+.fa-soccer-ball-o::before, .fa-futbol-o::before { content: "=EF=87=A3"; }
+
+.fa-tty::before { content: "=EF=87=A4"; }
+
+.fa-binoculars::before { content: "=EF=87=A5"; }
+
+.fa-plug::before { content: "=EF=87=A6"; }
+
+.fa-slideshare::before { content: "=EF=87=A7"; }
+
+.fa-twitch::before { content: "=EF=87=A8"; }
+
+.fa-yelp::before { content: "=EF=87=A9"; }
+
+.fa-newspaper-o::before { content: "=EF=87=AA"; }
+
+.fa-wifi::before { content: "=EF=87=AB"; }
+
+.fa-calculator::before { content: "=EF=87=AC"; }
+
+.fa-paypal::before { content: "=EF=87=AD"; }
+
+.fa-google-wallet::before { content: "=EF=87=AE"; }
+
+.fa-cc-visa::before { content: "=EF=87=B0"; }
+
+.fa-cc-mastercard::before { content: "=EF=87=B1"; }
+
+.fa-cc-discover::before { content: "=EF=87=B2"; }
+
+.fa-cc-amex::before { content: "=EF=87=B3"; }
+
+.fa-cc-paypal::before { content: "=EF=87=B4"; }
+
+.fa-cc-stripe::before { content: "=EF=87=B5"; }
+
+.fa-bell-slash::before { content: "=EF=87=B6"; }
+
+.fa-bell-slash-o::before { content: "=EF=87=B7"; }
+
+.fa-trash::before { content: "=EF=87=B8"; }
+
+.fa-copyright::before { content: "=EF=87=B9"; }
+
+.fa-at::before { content: "=EF=87=BA"; }
+
+.fa-eyedropper::before { content: "=EF=87=BB"; }
+
+.fa-paint-brush::before { content: "=EF=87=BC"; }
+
+.fa-birthday-cake::before { content: "=EF=87=BD"; }
+
+.fa-area-chart::before { content: "=EF=87=BE"; }
+
+.fa-pie-chart::before { content: "=EF=88=80"; }
+
+.fa-line-chart::before { content: "=EF=88=81"; }
+
+.fa-lastfm::before { content: "=EF=88=82"; }
+
+.fa-lastfm-square::before { content: "=EF=88=83"; }
+
+.fa-toggle-off::before { content: "=EF=88=84"; }
+
+.fa-toggle-on::before { content: "=EF=88=85"; }
+
+.fa-bicycle::before { content: "=EF=88=86"; }
+
+.fa-bus::before { content: "=EF=88=87"; }
+
+.fa-ioxhost::before { content: "=EF=88=88"; }
+
+.fa-angellist::before { content: "=EF=88=89"; }
+
+.fa-cc::before { content: "=EF=88=8A"; }
+
+.fa-shekel::before, .fa-sheqel::before, .fa-ils::before { content: "=EF=88=
+=8B"; }
+
+.fa-meanpath::before { content: "=EF=88=8C"; }
+
+.fa-buysellads::before { content: "=EF=88=8D"; }
+
+.fa-connectdevelop::before { content: "=EF=88=8E"; }
+
+.fa-dashcube::before { content: "=EF=88=90"; }
+
+.fa-forumbee::before { content: "=EF=88=91"; }
+
+.fa-leanpub::before { content: "=EF=88=92"; }
+
+.fa-sellsy::before { content: "=EF=88=93"; }
+
+.fa-shirtsinbulk::before { content: "=EF=88=94"; }
+
+.fa-simplybuilt::before { content: "=EF=88=95"; }
+
+.fa-skyatlas::before { content: "=EF=88=96"; }
+
+.fa-cart-plus::before { content: "=EF=88=97"; }
+
+.fa-cart-arrow-down::before { content: "=EF=88=98"; }
+
+.fa-diamond::before { content: "=EF=88=99"; }
+
+.fa-ship::before { content: "=EF=88=9A"; }
+
+.fa-user-secret::before { content: "=EF=88=9B"; }
+
+.fa-motorcycle::before { content: "=EF=88=9C"; }
+
+.fa-street-view::before { content: "=EF=88=9D"; }
+
+.fa-heartbeat::before { content: "=EF=88=9E"; }
+
+.fa-venus::before { content: "=EF=88=A1"; }
+
+.fa-mars::before { content: "=EF=88=A2"; }
+
+.fa-mercury::before { content: "=EF=88=A3"; }
+
+.fa-transgender::before { content: "=EF=88=A4"; }
+
+.fa-transgender-alt::before { content: "=EF=88=A5"; }
+
+.fa-venus-double::before { content: "=EF=88=A6"; }
+
+.fa-mars-double::before { content: "=EF=88=A7"; }
+
+.fa-venus-mars::before { content: "=EF=88=A8"; }
+
+.fa-mars-stroke::before { content: "=EF=88=A9"; }
+
+.fa-mars-stroke-v::before { content: "=EF=88=AA"; }
+
+.fa-mars-stroke-h::before { content: "=EF=88=AB"; }
+
+.fa-neuter::before { content: "=EF=88=AC"; }
+
+.fa-facebook-official::before { content: "=EF=88=B0"; }
+
+.fa-pinterest-p::before { content: "=EF=88=B1"; }
+
+.fa-whatsapp::before { content: "=EF=88=B2"; }
+
+.fa-server::before { content: "=EF=88=B3"; }
+
+.fa-user-plus::before { content: "=EF=88=B4"; }
+
+.fa-user-times::before { content: "=EF=88=B5"; }
+
+.fa-hotel::before, .fa-bed::before { content: "=EF=88=B6"; }
+
+.fa-viacoin::before { content: "=EF=88=B7"; }
+
+.fa-train::before { content: "=EF=88=B8"; }
+
+.fa-subway::before { content: "=EF=88=B9"; }
+
+.fa-medium::before { content: "=EF=88=BA"; }
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://computationstructures.org/tools/workbook.css
+
+@charset "utf-8";
+
+@media screen {
+  html { overflow: auto; }
+  body { font: 12pt / 1.5 "IBM Plex Serif", Georgia, serif; background-imag=
+e: url("greyzz.png"); margin: 8px; color: black; }
+  table { border-collapse: separate; border-spacing: 2px; }
+  .navigation { padding: 10px; width: 220px; font: 10pt / 1.5 "IBM Plex Ser=
+if", Georgia, serif; background-image: url("wavegrid.png"); border: 1px sol=
+id rgb(128, 128, 128); position: absolute; top: 5px; bottom: 5px; overflow-=
+y: auto; }
+  .navigation b { font-family: "Trebuchet MS", sans-serif; }
+  .navigation ul { margin-top: 0px; margin-left: 0px; padding-left: 0px; }
+  .navigation a { padding: 2px; text-decoration: none; color: black; }
+  .navigation .section { padding-left: 0.4em; }
+  .navigation .section-open { font-size: 10px; }
+  .navigation a:hover { background-image: none; background-color: rgb(255, =
+217, 161); }
+  .navigation a:focus { background-image: none; background-color: rgb(255, =
+217, 161); }
+  .navigation a.selected { background-image: none; background-color: rgb(25=
+5, 217, 161); }
+  .navigation a.placeholder { color: grey; }
+  .navtab { padding: 2px; font: small-caps medium sans-serif; }
+  .drive-controls { position: absolute; bottom: 10px; left: 10px; right: 10=
+px; text-align: center; }
+  .drive-help { display: none; background-color: rgb(255, 217, 161); paddin=
+g: 5px; position: absolute; left: 10px; right: 10px; bottom: 45px; z-index:=
+ 10; }
+  .drive-spinner { display: none; position: absolute; top: 3px; left: 5px; =
+}
+  #drive-sync { display: table-cell; vertical-align: middle; cursor: pointe=
+r; }
+  #drive-sync img { padding-left: 5px; vertical-align: middle; }
+  .tabs { position: relative; }
+  .tab { display: inline; position: relative; top: 3px; left: -1px; cursor:=
+ default; background-image: url("wavegrid.png"); padding-bottom: 4px; paddi=
+ng-left: 4px; padding-right: 4px; border: 1px solid rgb(128, 128, 128); bor=
+der-top-left-radius: 4px; border-top-right-radius: 4px; font: small-caps sm=
+all sans-serif; }
+  .tab-active { background-image: none; background-color: white; border-bot=
+tom: 1px solid white; z-index: 2; }
+  .user-controls { float: right; width: 150px; line-height: 1; height: 22px=
+; text-align: right; cursor: default; z-index: 200; }
+  .user-controls img { cursor: pointer; }
+  .user-menu { display: none; line-height: 1.5; text-align: left; border: 1=
+px solid rgba(0, 0, 0, 0.15); border-radius: 4px; box-shadow: rgba(0, 0, 0,=
+ 0.176) 0px 6px 12px; padding: 5px; background-image: none; background-colo=
+r: white; background-clip: padding-box; }
+  .user-menu div { padding: 3px; cursor: pointer; }
+  .user-menu div:hover { background-color: rgb(255, 217, 161); }
+  .user-menu button { height: 20px; }
+  .user-banner { display: inline-block; font: small sans-serif; vertical-al=
+ign: top; margin-top: 3px; }
+  .ajax-loader { position: absolute; top: 0px; left: -40px; display: none; =
+}
+  .btn { display: inline-block; padding: 6px 12px; margin-bottom: 0px; text=
+-align: center; white-space: nowrap; vertical-align: middle; cursor: pointe=
+r; color: white; background-color: rgb(246, 168, 40); border-color: rgb(246=
+, 168, 40); font-size: 18px; font-family: "Trebuchet MS", sans-serif; borde=
+r-radius: 4px; }
+  .content { border: 1px solid rgb(128, 128, 128); background-color: rgb(25=
+5, 255, 255); padding: 10px; font: 12pt / 1.5 "IBM Plex Serif", Georgia, se=
+rif; width: 600px; position: absolute; top: 5px; bottom: 5px; left: 253px; =
+overflow-y: auto; }
+  .contentprint { background-color: rgb(255, 255, 255); padding: 10px; font=
+: 12pt / 1.5 Georgia, serif; }
+  #toc { display: inline-block; text-align: left; }
+  .slides { text-align: center; }
+  .slide { margin-top: 0.5em; margin-bottom: 0.5em; }
+  .slide iframe { border: 1px solid black; }
+  .transcript { position: relative; display: none; width: 502px; height: 20=
+0px; padding: 5px; overflow-y: auto; font: 12pt / 1.5 Georgia, serif; borde=
+r: 1px solid black; text-align: left; }
+  .transcript::-webkit-scrollbar { appearance: none; width: 7px; }
+  .transcript::-webkit-scrollbar-thumb { border-radius: 4px; background-col=
+or: rgba(0, 0, 0, 0.5); box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 1px; }
+  .transcript-text { padding: 5px; }
+  .transcript-text:hover { text-decoration: underline; }
+  .transcript-text-highlight { background-color: rgb(255, 217, 161); }
+  .question { margin-top: 1.5em; margin-bottom: 0.5em; font-weight: bold; }
+  .check-yourself { display: inline-block; width: 512px; margin-top: 0.5em;=
+ margin-bottom: 0.5em; text-align: left; }
+  .xyzzy { display: none; }
+  .answer { margin-top: 0.5em; padding: 5px; background-color: rgb(255, 217=
+, 161); }
+  .answer-right { background-color: transparent; }
+  .answer-row { display: table; width: 100%; }
+  .answer-label { display: table-cell; width: 1px; padding-right: 0.25em; v=
+ertical-align: middle; white-space: nowrap; }
+  .answer-text-input { display: table-cell; width: 100%; background-color: =
+white; vertical-align: middle; font-size: 16px; }
+  .answer-choice-input { display: table-cell; width: 100%; vertical-align: =
+top; font-size: 16px; border-left: 1px solid black; padding-left: 0.5em; ma=
+rgin-left: 0.5em; }
+  .answer-check { display: table-cell; width: 16px; padding-left: 0.5em; fo=
+nt-size: 20px; vertical-align: middle; }
+  .answer-right .answer-check::before { content: "=E2=9C=94"; color: green;=
+ }
+  .answer-wrong .answer-check::before { content: "=E2=9C=98"; color: red; }
+  .answer-window { margin: 1em; text-align: center; }
+  .answer-window a { text-decoration: none; padding: 5px; background-color:=
+ black; color: white; font-size: large; border: 1px solid black; border-rad=
+ius: 4px; }
+  .answer-window a.open { background-color: white; color: black; }
+  pre.jsim { margin: 10px; padding: 10px; background-color: rgb(255, 253, 2=
+27); }
+  div.hint { margin: 10px; padding: 10px; background-color: rgb(240, 255, 2=
+40); border: 1px solid rgb(176, 192, 176); }
+  .answer-message { color: blue; }
+  .plot-container { background-color: rgb(238, 238, 238); line-height: 1; }
+  .plot-container:active, .plot-container:focus { cursor: default; }
+  .plot-canvas { display: block; }
+  .plot-toolbar { line-height: 25px; cursor: default; margin-bottom: 5px; }
+  .plot-tool { padding: 2px; border: 1px solid rgb(238, 238, 238); vertical=
+-align: middle; font: small-caps small sans-serif; opacity: 0.2; }
+  .plot-tool-spacer { display: inline; padding-left: 1em; }
+  .plot-tool-enabled { opacity: 1; }
+  .plot-tool-enabled:hover { border-color: rgb(0, 0, 0); }
+  .plot-tool-enabled:active { background-color: rgb(204, 204, 204); }
+  .plot-scrollbar-wrapper { height: 20px; }
+  .plot-scrollbar { height: 10px; border: 1px solid rgb(204, 204, 204); mar=
+gin-top: 4px; margin-bottom: 4px; }
+  .plot-scrollbar-thumb { background-color: rgb(136, 136, 136); border-radi=
+us: 4px; height: 8px; margin-top: 1px; margin-bottom: 1px; display: none; c=
+ursor: pointer; }
+  h1 { font-family: "Trebuchet MS", sans-serif; font-size: 24px; color: rgb=
+(240, 173, 78); margin-top: 0px; }
+  h2 { font-family: "Trebuchet MS", sans-serif; font-size: 20px; color: rgb=
+(240, 173, 78); }
+  h3 { font-family: "Trebuchet MS", sans-serif; font-size: 18px; color: rgb=
+(240, 173, 78); }
+  pre { font: 10pt / 1.25 "Lucida Console", monospace; margin: 0px; padding=
+: 1em; background-color: rgb(255, 240, 192); color: black; }
+  tt { font: 11pt / 1.5 "Lucdia Console", monospace; }
+  iframe.tool { width: 700px; height: 400px; border: 1px solid black; resiz=
+e: both; overflow: auto; }
+  .highlight .err { color: rgb(166, 23, 23); background-color: rgb(227, 210=
+, 210); }
+  .highlight .k { font-weight: bold; }
+  .highlight .o { font-weight: bold; }
+  .highlight .cm { color: rgb(153, 153, 136); font-style: italic; }
+  .highlight .cp { color: rgb(153, 153, 153); font-weight: bold; }
+  .highlight .c1 { color: rgb(153, 153, 136); font-style: italic; }
+  .highlight .cs { color: rgb(153, 153, 153); font-weight: bold; font-style=
+: italic; }
+  .highlight .gd { color: rgb(0, 0, 0); background-color: rgb(255, 221, 221=
+); }
+  .highlight .gd .x { color: rgb(0, 0, 0); background-color: rgb(255, 170, =
+170); }
+  .highlight .ge { font-style: italic; }
+  .highlight .gr { color: rgb(170, 0, 0); }
+  .highlight .gh { color: rgb(153, 153, 153); }
+  .highlight .gi { color: rgb(0, 0, 0); background-color: rgb(221, 255, 221=
+); }
+  .highlight .gi .x { color: rgb(0, 0, 0); background-color: rgb(170, 255, =
+170); }
+  .highlight .go { color: rgb(136, 136, 136); }
+  .highlight .gp { color: rgb(85, 85, 85); }
+  .highlight .gs { font-weight: bold; }
+  .highlight .gu { color: rgb(170, 170, 170); }
+  .highlight .gt { color: rgb(170, 0, 0); }
+  .highlight .kc { font-weight: bold; }
+  .highlight .kd { font-weight: bold; }
+  .highlight .kp { font-weight: bold; }
+  .highlight .kr { font-weight: bold; }
+  .highlight .kt { color: rgb(68, 85, 136); font-weight: bold; }
+  .highlight .m { color: rgb(0, 153, 153); }
+  .highlight .s { color: rgb(221, 17, 68); }
+  .highlight .na { color: rgb(0, 128, 128); }
+  .highlight .nb { color: rgb(0, 134, 179); }
+  .highlight .nc { color: rgb(68, 85, 136); font-weight: bold; }
+  .highlight .no { color: rgb(0, 128, 128); }
+  .highlight .ni { color: rgb(128, 0, 128); }
+  .highlight .ne { color: rgb(153, 0, 0); font-weight: bold; }
+  .highlight .nf { color: rgb(153, 0, 0); font-weight: bold; }
+  .highlight .nn { color: rgb(85, 85, 85); }
+  .highlight .nt { color: rgb(0, 0, 128); }
+  .highlight .nv { color: rgb(0, 128, 128); }
+  .highlight .ow { font-weight: bold; }
+  .highlight .w { color: rgb(187, 187, 187); }
+  .highlight .mf { color: rgb(0, 153, 153); }
+  .highlight .mh { color: rgb(0, 153, 153); }
+  .highlight .mi { color: rgb(0, 153, 153); }
+  .highlight .mo { color: rgb(0, 153, 153); }
+  .highlight .sb { color: rgb(221, 17, 68); }
+  .highlight .sc { color: rgb(221, 17, 68); }
+  .highlight .sd { color: rgb(221, 17, 68); }
+  .highlight .s2 { color: rgb(221, 17, 68); }
+  .highlight .se { color: rgb(221, 17, 68); }
+  .highlight .sh { color: rgb(221, 17, 68); }
+  .highlight .si { color: rgb(221, 17, 68); }
+  .highlight .sx { color: rgb(221, 17, 68); }
+  .highlight .sr { color: rgb(0, 153, 38); }
+  .highlight .s1 { color: rgb(221, 17, 68); }
+  .highlight .ss { color: rgb(153, 0, 115); }
+  .highlight .bp { color: rgb(153, 153, 153); }
+  .highlight .vc { color: rgb(0, 128, 128); }
+  .highlight .vg { color: rgb(0, 128, 128); }
+  .highlight .vi { color: rgb(0, 128, 128); }
+  .highlight .il { color: rgb(0, 153, 153); }
+  .float-left { float: left; }
+  .float-right { float: right; }
+  th { border-bottom: thin solid black; }
+  td.border-top { border-top: thin solid black; }
+  code { font-family: monospace; font-size: 10pt; font-weight: bold; }
+  .center { text-align: center; }
+  .process { display: none; }
+  .toc_0 { font: 13pt / 1.5 Georgia, serif; margin-left: 40px; text-indent:=
+ -40px; margin-top: 5px; }
+  .toc_1 { margin-left: 40px; text-indent: -30px; font: 12pt / 1.5 Georgia,=
+ serif; }
+  .toc_2 { margin-left: 40px; text-indent: -20px; font: 11pt / 1.5 Georgia,=
+ serif; }
+  .toc_3 { margin-left: 40px; text-indent: -10px; font: 10pt / 1.5 Georgia,=
+ serif; }
+  .component_list { border: none; border-collapse: collapse; margin-left: 4=
+0px; margin-bottom: 20px; border-spacing: 20px 5px; font-size: small; capti=
+on-side: bottom; }
+  .component_list tr { }
+  .component_list th { margin-left: auto; margin-right: auto; border-spacin=
+g: 10px; }
+  .component_list td { margin-left: auto; margin-right: auto; text-align: c=
+enter; border-spacing: 10px; }
+  .component_list td img { border-spacing: 10px; }
+  .hanging_tag { padding-left: 22px; }
+  .hanging { list-style-type: none; padding-left: 22px; text-indent: -22px;=
+ }
+  .indent { padding-left: 22px; }
+  .defn { padding-left: 52px; text-indent: -22px; }
+  .defnyellow { border-style: solid; border-width: 1px; border-color: rgb(0=
+, 0, 0); margin: 10px 70px; padding: 20px 20px 20px 52px; text-indent: -22p=
+x; background-color: rgb(255, 255, 51); }
+  .yellowbox { border-style: solid; border-width: 1px; border-color: rgb(0,=
+ 0, 0); margin: 10px 70px; padding: 20px; background-color: rgb(255, 255, 5=
+1); }
+  .printbutton { float: right; font: 6pt / 1.2 Georgia, serif; text-align: =
+right; cursor: pointer; }
+  .inset { padding: 0px; margin-top: 0px; margin-bottom: 0px; font: 10pt / =
+1.25 "Lucida Console", monospace; background-color: rgb(250, 255, 255); col=
+or: black; }
+  .inset-caption { font: bold 12pt / 1.5 Georgia, serif; margin-top: 0px; m=
+argin-bottom: 0px; text-align: center; }
+  .inset.float-left { float: left; margin-left: 0px; margin-right: 15px; }
+  .inset.float-right { float: right; margin-left: 15px; margin-right: 0px; =
+}
+  tag { font: 11pt / 1.5 "Lucdia Console", monospace; }
+  tag::after { font: 11pt / 1.5 "Lucdia Console", monospace; content: ">"; =
+}
+  tag::before { font: 11pt / 1.5 "Lucdia Console", monospace; content: "<";=
+ }
+  codeblock { font: 10pt / 1.25 "Lucida Console", monospace; margin: 10px 0=
+px 10px 20px; padding: 0px; background-color: rgb(255, 255, 255); color: bl=
+ack; white-space: pre; }
+  table.instsummary, table.instsummary th, table.instsummary td { text-alig=
+n: left; border-style: none; }
+  table.instsummary tr.inst { font-size: 11px; margin-top: 0px; margin-bott=
+om: 0px; padding-top: 0px; padding-bottom: 0px; height: 10px; }
+  table.instsummary tr { vertical-align: top; }
+  .left { text-align: left; }
+  .right { text-align: right; }
+  .bold { font-weight: bold; }
+  .lecslide { margin-top: 1em; border-top: 0.5px solid rgb(128, 128, 128); =
+padding-top: 1em; text-align: center; }
+  .lecslideimg { width: 5in; border: 1px solid black; }
+  .worksheet { border: none; }
+}
+
+@media print {
+  @page { size: 8.5in 13.1635in; margin: 1in; }
+  body { font: 11pt / 1.2 TimesNewRoman, serif; background-image: none; col=
+or: black; }
+  a { text-decoration: none; color: black; }
+  .navigation { display: none; }
+  .footer { display: none; }
+  .content { font: 11pt / 1.2 TimesNewRoman, serif; }
+  h2 { font-family: "Trebuchet MS", sans-serif; font-size: 20px; }
+  table { line-height: 1.2; }
+  .lecslide { break-before: page; text-align: center; }
+  .lecslideimg { width: 70%; border: 1px solid black; }
+}
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://computationstructures.org/tools/greyzz.png
+
+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
+
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://computationstructures.org/tools/wavegrid.png
+
+iVBORw0KGgoAAAANSUhEUgAAAF8AAABfCAIAAAABLoyiAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE
+JmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczpt
+ZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS4xLjIiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0
+dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRl
+c2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5h
+ZG9iZS5jb20veGFwLzEuMC8iPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxMy0wOC0yOVQx
+MTowODo1MTwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+UGl4ZWxt
+YXRvciAyLjI8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgICAg
+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0
+dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+
+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WVJlc29sdXRpb24+NzI8L3RpZmY6
+WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjU8L3RpZmY6Q29tcHJlc3Np
+b24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjE8L3RpZmY6UmVzb2x1dGlvblVuaXQ+
+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjcyPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICA8
+L3JkZjpEZXNjcmlwdGlvbj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAg
+ICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iPgogICAg
+ICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+OTU8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAg
+ICAgICA8ZXhpZjpDb2xvclNwYWNlPjY1NTM1PC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxl
+eGlmOlBpeGVsWURpbWVuc2lvbj45NTwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgIDwvcmRm
+OkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgpaP2C/AAATxElEQVR4Ae2c
+WXbkOg5EPeSCe4+9pvf3qtw3IgCIysGjdPrHPC4lCIJAAAQhSs7y8z///c/T09Ob/r1xfXl+hnx6
+fn77+/eZ9vKikYX+++fPy+urhZ7+LDRzGXp9ff2Lnre3F0/MXHU95e/fv4i99lAk6f6x/pjepr+9
+wR89KAcVDZzogc8VeEFyEv4L/igc+AZ0u8GV7hsB0ocuDDz7hw7QuArT8zN8IgRJy5CImq+J0337
+84cp0vP09Cf6e1Qy1onFkc9SiZ/VsrCDY8vE5vUVA0RW8XI7A/8lqnW1GUzFHrBolUrOBboAIhhZ
+fOgIw9dclprUA7RdvUqQSgFiJKXKR0fxTfFCrbiwK0/jdmzBjPcol0yEHWvxOzRSeAL+JTpeWJlJ
+M+7uLLZhAZMLDtqnoBfdTDzfJpqKjBywmHihiXtHZ/Rkek25UvRO9wT8ik5cYUOAXLS3hjYIzWiK
+lPtdoUx78MTL+wEKVKI8IA/Hf/nXWYqLa3GJmQ6OwqUS6DhAKckdpmyi4lcII6RdloYMBBWeaxSq
+Pxom3FFoGZnzuujqYoy8ADgQYweC28Ik4xn4VZXjHji0yScp+kaTJZriLccsB/FvalA8d7lhPiiZ
+MnpISCTNmw8YWoxwuRmVw0jif/jSoSY91oAWgbMAYypSXrC5bZ2B/1KhaSz5fO9qrCXOh+CrKQre
+m+niidmuTV3dp7JmSHF8e6N+DwF/paWwq7K2vemsVmlv61GYOBb96KOBMS4lreEuft8+HikKv5fx
+VqrW93bgk5zHmsvyJ/W8L/bYyof4L8pwNzb2GnvxvauT6tuo5SvSCf/74Ho0a44JJUws+pMjX0yk
+VK20tp76aiJ8/BHhwsQVfqqYiBPwX2ID48qxyTrfHclk4QJZrkHDkH9gpuJCMFF6AB3nfcz1JFdT
+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
+
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://computationstructures.org/title.gif
+
+R0lGODlhQAJdAPcAAAAAADMAAGYAAJkAAMwAAP8AAAAzADMzAGYzAJkzAMwzAP8zAABmADNmAGZm
+AJlmAMxmAP9mAACZADOZAGaZAJmZAMyZAP+ZAADMADPMAGbMAJnMAMzMAP/MAAD/ADP/AGb/AJn/
+AMz/AP//AAAAMzMAM2YAM5kAM8wAM/8AMwAzMzMzM2YzM5kzM8wzM/8zMwBmMzNmM2ZmM5lmM8xm
+M/9mMwCZMzOZM2aZM5mZM8yZM/+ZMwDMMzPMM2bMM5nMM8zMM//MMwD/MzP/M2b/M5n/M8z/M///
+MwAAZjMAZmYAZpkAZswAZv8AZgAzZjMzZmYzZpkzZswzZv8zZgBmZjNmZmZmZplmZsxmZv9mZgCZ
+ZjOZZmaZZpmZZsyZZv+ZZgDMZjPMZmbMZpnMZszMZv/MZgD/ZjP/Zmb/Zpn/Zsz/Zv//ZgAAmTMA
+mWYAmZkAmcwAmf8AmQAzmTMzmWYzmZkzmcwzmf8zmQBmmTNmmWZmmZlmmcxmmf9mmQCZmTOZmWaZ
+mZmZmcyZmf+ZmQDMmTPMmWbMmZnMmczMmf/MmQD/mTP/mWb/mZn/mcz/mf//mQAAzDMAzGYAzJkA
+zMwAzP8AzAAzzDMzzGYzzJkzzMwzzP8zzABmzDNmzGZmzJlmzMxmzP9mzACZzDOZzGaZzJmZzMyZ
+zP+ZzADMzDPMzGbMzJnMzMzMzP/MzAD/zDP/zGb/zJn/zMz/zP//zAAA/zMA/2YA/5kA/8wA//8A
+/wAz/zMz/2Yz/5kz/8wz//8z/wBm/zNm/2Zm/5lm/8xm//9m/wCZ/zOZ/2aZ/5mZ/8yZ//+Z/wDM
+/zPM/2bM/5nM/8zM///M/wD//zP//2b//5n//8z//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAB0ALAAAAABAAl0A
+AAj+ADsIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuX
+MGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnPmXIcAC1qtWrWLMyRXCA64GvWsOK
+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
+Ji3OAQEBAAA7
+
+------MultipartBoundary--KgxFdDm55h0jgTrO3zYriytmBHhoWMrmr5RXEeklH5------
