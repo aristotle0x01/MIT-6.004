@@ -3,7 +3,35 @@
 
 
 
-<u>**参考**</u>
+### course address 
+
+I used [edx: Computation Structures 1,2,3](https://learning.edx.org/course/course-v1:MITx+6.004.1x_3+3T2016/home) as the main course content, because it was better organized and sliced into video, slides, problem sets with answer, as well as labs, than the original mit open course ware.
+
+
+
+but sadly those contents will be removed from edx from 2021 Oct 15, so i downloaded all the course materials from edx, uploaded here
+
+![edx](https://user-images.githubusercontent.com/2216435/136506611-8cd2da53-c8b0-49a6-a6dc-eb545e0b2eff.png)
+
+
+
+### lab address
+
+I did not use labs from edx, but used [6.004 lab](https://computationstructures.org/exercises/cmos/lab.html) instead
+
+![lab page](https://user-images.githubusercontent.com/2216435/136508557-5ce2f7e6-bf6c-4e25-bcdb-d0739bafae49.png)
+
+
+
+**<u>note:</u>**
+
+be careful since all the lab content will only be saved in your browser cache, you can save it by "Save all answers" below, which will generate a file named **<u>"saved_state.json"</u>**, then upload it later to another browser
+
+![save lab content](https://user-images.githubusercontent.com/2216435/136508804-c55ad80f-7f15-4f70-921c-711b48123122.png)
+
+
+
+### reference
 
 课程:https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-004-computation-structures-spring-2017/calendar/
 
