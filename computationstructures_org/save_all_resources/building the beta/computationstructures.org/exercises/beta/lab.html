@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head lang="en">
+    <title>Building the Beta</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=870">
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43707566-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43707566-1');
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}, TeX: {equationNumbers: { autoNumber: "AMS" }} });
+    </script>
+    <script type="text/javascript" async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <script src="../../tools/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../../tools/font-awesome.css">
+    <link href="../../tools/workbook.css" rel="stylesheet" type="text/css">
+    <script src="../../tools/workbook.js"></script>
+    <script src="../../tools/answers.js"></script>
+
+</head>
+
+<body>
+    <div class="navigation">
+        <center><img src="../../title.gif" width="200" onclick="window.location='../../index.html';"></center>
+        <style>
+        </style>
+        <table width="100%">
+            <tr>
+                <td align="center">
+                    <a href="../../lectures/index.html"><span class="navtab">lectures</span></a>
+                </td>
+                <td align="center">
+                    <a href="../../videos/index.html"><span class="navtab">videos</span></a>
+                </td>
+                <td align="center">
+                    <a href="../../worksheets/index.html"><span class="navtab">worksheets</span></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <a href="../../notes/index.html"><span class="navtab">notes</span></a>
+                </td>
+                <td align="center">
+                    <a class="selected" href="../../exercises/index.html"><span class="navtab">labs</span></a>
+                </td>
+            </tr>
+        </table>
+
+        <p><b>Labs</b><br>
+            <a class="" href="../../exercises/cmos/lab.html">
+    1. CMOS Technology
+  </a><br>
+            <a class="" href="../../exercises/adder/lab.html">
+    2. CMOS Adder
+  </a><br>
+            <a class="" href="../../exercises/fsm/lab.html">
+    3. FSMs
+  </a><br>
+            <a class="" href="../../exercises/alu/lab.html">
+    4. 32-bit ALU
+  </a><br>
+            <a class="" href="../../exercises/assembly/lab.html">
+    5. Assembly Language
+  </a><br>
+            <a class="" href="../../exercises/procedures/lab.html">
+    6. Procedures &amp; Stacks
+  </a><br>
+            <a class="selected" href="../../exercises/beta/lab.html">
+    7. Building the Beta
+  </a><br>
+            <a class="" href="../../exercises/caches/lab.html">
+    8. Caches
+  </a><br>
+            <a class="" href="../../exercises/illop/lab.html">
+    9. Emulating Instructions
+  </a><br>
+            <a class="" href="../../exercises/tinyos/lab.html">
+    10. Tiny Operating System
+  </a><br>
+            <a class="" href="../../exercises/dp/lab.html">
+    11. Optimizing the Beta
+  </a><br>
+        </p>
+
+        <p><b>Tool Sandboxes</b><br>
+            <a class="" href="../../exercises/sandboxes/jade.html">
+    Jade: circuit simulator
+  </a><br>
+            <a class="" href="../../exercises/sandboxes/bsim.html">
+    BSim: Beta simulator
+  </a><br>
+            <a class="" href="../../exercises/sandboxes/tmsim.html">
+    TMSim: Turing Machine simulator
+  </a><br>
+        </p>
+
+
+        <p/>
+        <hr style="border-style:solid; border-color:black;" />
+        <p>
+            Your exercise answers are saved by the browser in local storage associated with this webpage. You can use the buttons below to load/save the answers on your system.
+        </p>
+
+
+        <p>
+            Save all answers:
+            <a download="saved_state.json" href="#" onclick="workbook.save_answers(this);"><button>Save</button></a>
+        </p>
+
+        <p>
+            Load all answers (<i>this will overwrite any answers currently saved by the browser</i>): <br/>
+            <input style="margin-left:1em;" type="file" onchange="workbook.load_answers(this);" />
+        </p>
+
+        <p>
+            <center><i>Authored by Chris Terman</i></center>
+        </p>
+
+
+    </div>
+    <div class="content">
+        <h1>Building the Beta</h1>
+
+        <p/>When entering numeric values in the answer fields, you can use integers (1000, 0x3E8, 0b1111101000), floating-point numbers (1000.0), scientific notation (1e3), engineering scale factors (1K), or numeric expressions (3*300 + 100).
+
+        <p/>Useful links:
+        <ul>
+            <li><a href="../../notes/pdfs/betadiagram.pdf" target="_blank">Unpipelined Beta (PDF)</a></li>
+            <li><a href="../../notes/pdfs/betainst.pdf" target="_blank">Summary of Instruction Formats (PDF)</A></li>
+            <li><a href="../tool_docs/stdcell.html" target="_blank">Standard Cell Library</a></li>
+            <li><a href="../tool_docs/jade.html" target="_blank">Introduction to Jade</a></li>
+        </ul>
+
+        <p/><b>Problem 1.  Beta Control ROM</b>
+
+        <p/>For each of the following potential additions to the Beta instruction set, fill in the table with the control signal settings needed to execute these instructions on an unpipelined Beta. Assume the standard Beta datapath and control signals. Please
+        choose "don't care" if the value of control signal doesn't matter when executing the instruction.
+
+        <ol type="A">
+
+            <p/>
+            <li/><b>Swap register contents with memory location</b>
+            <pre>Usage:     MSWP (Ra, literal, Rc)
+Operation: PC &lt;- PC + 4
+           EA &lt;- Reg[Ra] + SEXT(literal)
+           tmp &lt;- Mem[EA]
+           Mem[EA] &lt;- Reg[Rc]
+           Reg[Rc] &lt;- tmp</pre>
+
+            <answer type="menu" id="1A1">
+                <label><tt>ALUFN&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>adder unit: A + B</menuitem>
+                <menuitem>adder unit: A - B</menuitem>
+                <menuitem>boole unit: A AND B</menuitem>
+                <menuitem>boole unit: A OR B</menuitem>
+                <menuitem>boole unit: A XOR B</menuitem>
+                <menuitem>boole unit: NOT A</menuitem>
+                <menuitem>boole unit: select A operand</menuitem>
+                <menuitem>boole unit: select B operand</menuitem>
+                <menuitem>shift unit: SHL</menuitem>
+                <menuitem>shift unit: SHR</menuitem>
+                <menuitem>shift unit: SRA</menuitem>
+                <menuitem>compare unit: CMPEQ</menuitem>
+                <menuitem>compare unit: CMPLT</menuitem>
+                <menuitem>compare unit: CMPLE</menuitem>
+            </answer>
+            <answer type="menu" id="1A2">
+                <label><tt>ASEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A3">
+                <label><tt>BSEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A4">
+                <label><tt>MOE&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A5">
+                <label><tt>MWR&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A6">
+                <label><tt>PCSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+                <menuitem>2</menuitem>
+                <menuitem>3</menuitem>
+                <menuitem>4</menuitem>
+            </answer>
+            <answer type="menu" id="1A7">
+                <label><tt>RA2SEL</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A8">
+                <label><tt>WASEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1A9">
+                <label><tt>WDSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>2</menuitem>
+            </answer>
+            <answer type="menu" id="1A10">
+                <label><tt>WERF&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+
+            <p/>
+            <li/><b>Move if zero</b>
+            <pre>Usage:     MVZ (Ra, Rb, Rc)
+Operation: PC &lt;- PC + 4
+           if Reg[Ra] == 0 then Reg[Rc] &lt;- Reg[Rb]</pre>
+
+            <answer type="menu" id="1B1">
+                <label><tt>ALUFN&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>adder unit: A + B</menuitem>
+                <menuitem>adder unit: A - B</menuitem>
+                <menuitem>boole unit: A AND B</menuitem>
+                <menuitem>boole unit: A OR B</menuitem>
+                <menuitem>boole unit: A XOR B</menuitem>
+                <menuitem>boole unit: NOT A</menuitem>
+                <menuitem>boole unit: select A operand</menuitem>
+                <menuitem>boole unit: select B operand</menuitem>
+                <menuitem>shift unit: SHL</menuitem>
+                <menuitem>shift unit: SHR</menuitem>
+                <menuitem>shift unit: SRA</menuitem>
+                <menuitem>compare unit: CMPEQ</menuitem>
+                <menuitem>compare unit: CMPLT</menuitem>
+                <menuitem>compare unit: CMPLE</menuitem>
+            </answer>
+            <answer type="menu" id="1B2">
+                <label><tt>ASEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B3">
+                <label><tt>BSEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B4">
+                <label><tt>MOE&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B5">
+                <label><tt>MWR&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B6">
+                <label><tt>PCSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+                <menuitem>2</menuitem>
+                <menuitem>3</menuitem>
+                <menuitem>4</menuitem>
+            </answer>
+            <answer type="menu" id="1B7">
+                <label><tt>RA2SEL</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B8">
+                <label><tt>WASEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1B9">
+                <label><tt>WDSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>2</menuitem>
+            </answer>
+            <answer type="menu" id="1B10">
+                <label><tt>WERF&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+
+            <p/>
+            <li/><b>Move constant if zero</b>
+            <pre>Usage:     MVZ (Ra, literal, Rc)
+Operation: PC &lt;- PC + 4
+           if Reg[Ra] == 0 then Reg[Rc] &lt;- SEXT(literal)</pre>
+
+            <answer type="menu" id="1C1">
+                <label><tt>ALUFN&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>adder unit: A + B</menuitem>
+                <menuitem>adder unit: A - B</menuitem>
+                <menuitem>boole unit: A AND B</menuitem>
+                <menuitem>boole unit: A OR B</menuitem>
+                <menuitem>boole unit: A XOR B</menuitem>
+                <menuitem>boole unit: NOT A</menuitem>
+                <menuitem>boole unit: select A operand</menuitem>
+                <menuitem>boole unit: select B operand</menuitem>
+                <menuitem>shift unit: SHL</menuitem>
+                <menuitem>shift unit: SHR</menuitem>
+                <menuitem>shift unit: SRA</menuitem>
+                <menuitem>compare unit: CMPEQ</menuitem>
+                <menuitem>compare unit: CMPLT</menuitem>
+                <menuitem>compare unit: CMPLE</menuitem>
+            </answer>
+            <answer type="menu" id="1C2">
+                <label><tt>ASEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C3">
+                <label><tt>BSEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C4">
+                <label><tt>MOE&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C5">
+                <label><tt>MWR&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C6">
+                <label><tt>PCSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+                <menuitem>2</menuitem>
+                <menuitem>3</menuitem>
+                <menuitem>4</menuitem>
+            </answer>
+            <answer type="menu" id="1C7">
+                <label><tt>RA2SEL</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C8">
+                <label><tt>WASEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1C9">
+                <label><tt>WDSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>2</menuitem>
+            </answer>
+            <answer type="menu" id="1C10">
+                <label><tt>WERF&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+
+            <p/>
+            <li/><b>Load indexed</b>
+            <pre>Usage:     LDX (Ra, Rb, Rc)
+Operation: PC &lt;- PC + 4
+           Reg[Rc] &lt;- Mem[Reg[Ra] + Reg[Rb]]</pre>
+
+            <answer type="menu" id="1D1">
+                <label><tt>ALUFN&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>adder unit: A + B</menuitem>
+                <menuitem>adder unit: A - B</menuitem>
+                <menuitem>boole unit: A AND B</menuitem>
+                <menuitem>boole unit: A OR B</menuitem>
+                <menuitem>boole unit: A XOR B</menuitem>
+                <menuitem>boole unit: NOT A</menuitem>
+                <menuitem>boole unit: select A operand</menuitem>
+                <menuitem>boole unit: select B operand</menuitem>
+                <menuitem>shift unit: SHL</menuitem>
+                <menuitem>shift unit: SHR</menuitem>
+                <menuitem>shift unit: SRA</menuitem>
+                <menuitem>compare unit: CMPEQ</menuitem>
+                <menuitem>compare unit: CMPLT</menuitem>
+                <menuitem>compare unit: CMPLE</menuitem>
+            </answer>
+            <answer type="menu" id="1D2">
+                <label><tt>ASEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D3">
+                <label><tt>BSEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D4">
+                <label><tt>MOE&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D5">
+                <label><tt>MWR&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D6">
+                <label><tt>PCSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+                <menuitem>2</menuitem>
+                <menuitem>3</menuitem>
+                <menuitem>4</menuitem>
+            </answer>
+            <answer type="menu" id="1D7">
+                <label><tt>RA2SEL</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D8">
+                <label><tt>WASEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="1D9">
+                <label><tt>WDSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>2</menuitem>
+            </answer>
+            <answer type="menu" id="1D10">
+                <label><tt>WERF&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+        </ol>
+
+        <p/><b>Problem 2. New ALU!</b>
+
+        <p/>Ben Bitdiddle has proposed changing the adder unit of the Beta ALU as shown in the following diagram. His goal is to use the adder unit to compute more than just "A+B" and "A-B". The changes include one additional inverter and three additional
+        2-input NAND gates for each bit of the adder unit. The "x32" appearing inside the gate icons indicates that those gates are replicated 32 times to handle all 32 bits of incoming data.
+
+        <p/>
+        <center><img border="0" src="1.gif" /></center>
+
+        <ol type="A">
+
+            <p/>
+            <li/>For each of the eight possible values of the three control bits OP[2:0] indicate what operation the revised adder unit will perform.
+
+            <answer type="menu" id="2A1">
+                <label><tt>OP[2:0] = 0b000</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A2">
+                <label><tt>OP[2:0] = 0b001</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A3">
+                <label><tt>OP[2:0] = 0b010</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A4">
+                <label><tt>OP[2:0] = 0b011</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A5">
+                <label><tt>OP[2:0] = 0b100</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A6">
+                <label><tt>OP[2:0] = 0b101</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A7">
+                <label><tt>OP[2:0] = 0b110</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+            <answer type="menu" id="2A8">
+                <label><tt>OP[2:0] = 0b111</tt></label>
+                <menuitem>A</menuitem>
+                <menuitem>B</menuitem>
+                <menuitem>A+B</menuitem>
+                <menuitem>A-B</menuitem>
+                <menuitem>A+1</menuitem>
+                <menuitem>B+1</menuitem>
+                <menuitem>A-1</menuitem>
+                <menuitem>B-1</menuitem>
+                <menuitem>A+B+1</menuitem>
+                <menuitem>A+B-1</menuitem>
+                <menuitem>A-B+1</menuitem>
+                <menuitem>A-B-1</menuitem>
+                <menuitem>none of the above</menuitem>
+            </answer>
+
+            <p/>
+            <li/>To show off the capabilities of his new adder unit, Ben proposes adding a LOOP instruction which combines branching and decrementing in a single instruction. Ben's theory is that the SUB/BNE instructions that appear at the end of a FOR-loop
+            can be combined into a single LOOP instruction. Here's his definition for LOOP:
+
+            <pre>Usage:     LOOP(Ra, label, Rc)
+Operation: literal = ((OFFSET(label) - OFFSET(current inst))/4) - 1
+           PC &lt;- PC + 4
+           EA &lt;- PC + 4*SEXT(literal)
+           tmp &lt;- Reg[Ra]
+           Reg[Rc] &lt;- Reg[Ra] - 1
+           if tmp != 0 then PC &lt;- EA </pre> The LOOP instruction behaves like a BNE in the sense that it branches if Reg[Ra] is not zero. But instead of saving the PC of the following instruction in Rc, Reg[Ra]-1 is stored in Rc instead. The destination of the branch is determined
+            as for all branches: the literal field of the instruction is treated as a word offset, so it is sign-extended, multiplied by four and added to PC+4 to produce a new value for the PC. Usually Ra and Rc specify the same register.
+
+            <p/>Consider the following instruction sequence:<br/>
+            <pre>loop: ADD(R1,R2,R3)
+      LOOP(R4,loop,R4)
+      ...</pre> Suppose R4 is initialized to 8 and then the two-instruction sequence shown above is executed.
+
+            <answer type="number" id="2B1" width="20">
+                <label>How many times will the ADD instruction be executed?</label>
+            </answer>
+            <answer type="number" id="2B2" width="20">
+                <label>What value is in R4 when "..." is finally executed?</label>
+            </answer>
+
+            <p/>
+            <li/>Fill in the table with the control signal settings needed to execute the LOOP instruction on an unpipelined Beta that includes Ben's new adder unit. Please choose "don't care" if the value of control signal doesn't matter when executing LOOP.;
+
+            <answer type="menu" id="2C1">
+                <label><tt>ALUFN&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>adder unit: A + B</menuitem>
+                <menuitem>adder unit: A - B</menuitem>
+                <menuitem>adder unit: A</menuitem>
+                <menuitem>adder unit: A + 1</menuitem>
+                <menuitem>adder unit: A - 1</menuitem>
+                <menuitem>adder unit: A + B + 1</menuitem>
+                <menuitem>adder unit: A - B - 1</menuitem>
+                <menuitem>boole unit: A AND B</menuitem>
+                <menuitem>boole unit: A OR B</menuitem>
+                <menuitem>boole unit: A XOR B</menuitem>
+                <menuitem>boole unit: NOT A</menuitem>
+                <menuitem>boole unit: select A operand</menuitem>
+                <menuitem>boole unit: select B operand</menuitem>
+                <menuitem>shift unit: SHL</menuitem>
+                <menuitem>shift unit: SHR</menuitem>
+                <menuitem>shift unit: SRA</menuitem>
+                <menuitem>compare unit: CMPEQ</menuitem>
+                <menuitem>compare unit: CMPLT</menuitem>
+                <menuitem>compare unit: CMPLE</menuitem>
+            </answer>
+            <answer type="menu" id="2C2">
+                <label><tt>ASEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C3">
+                <label><tt>BSEL&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C4">
+                <label><tt>MOE&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C5">
+                <label><tt>MWR&nbsp;&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C6">
+                <label><tt>PCSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+                <menuitem>2</menuitem>
+                <menuitem>3</menuitem>
+                <menuitem>4</menuitem>
+            </answer>
+            <answer type="menu" id="2C7">
+                <label><tt>RA2SEL</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C8">
+                <label><tt>WASEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+            <answer type="menu" id="2C9">
+                <label><tt>WDSEL&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>2</menuitem>
+            </answer>
+            <answer type="menu" id="2C10">
+                <label><tt>WERF&nbsp;&nbsp;</tt></label>
+                <menuitem>don't care</menuitem>
+                <menuitem>0</menuitem>
+                <menuitem>1</menuitem>
+                <menuitem>if Reg[Ra]==0 then 1 else 0</menuitem>
+                <menuitem>if Reg[Ra]==0 then 0 else 1</menuitem>
+            </answer>
+        </ol>
+
+        <p/><b>Problem 3.  Design Problem: Building the Beta</b>
+
+        <p/>See the instructions below.
+
+        <p/>Use the Jade instance below to enter your design. To complete this design problem, select the /beta/test module and click <i class="fa
+fa-check" style="color:green;"> </i> in the Jade toolbar and the built-in tester will either report any discrepencies between the expected and actual outputs, or, if your design is correct, it will record the test passed.
+
+        <answer id="2" type="window" tool_name="Jade" width="900" height="600" src="../../tools/jade_workbook.html">
+            { "shared_modules": ["../exercises/alu/alu_modules", "../exercises/beta/beta_modules"], "hierarchical": "true", "required_tests": ["327ee733491d310e278d231ad43f4abc"], "parts": ["/gates/.*","/alu/.*","/beta/.*","memory","/user/.*"], "tools": ["check"],
+            "editors": ["schematic","icon","test"], "edit": "/beta/test" }
+        </answer>
+
+        <p/>The goal of this lab is to complete the design of the Beta. We'll start by working on the three major subassemblies called out in the block diagram shown below: register file, control logic, and program counter. Once those modules pass their tests,
+        we'll work on the Beta itself, adding the ALU design from Lab 3 and the various muxes that select how the data is routed between the units.
+
+        <p/>
+        <center><img src="10.png" width="600" /></center>
+
+        <p/>There are design notes below suggesting how to go about the design of each of the sub-modules.
+
+        <br/>
+        <p/>Your first step is to copy over the ALU modules you designed in Lab 3 so that we can use your ALU in the Beta. Here's what you need to do:
+
+        <ol>
+            <li/>In another browser window open up the "32-bit ALU" exercise and scroll down to the Jade window in Problem 1. In the module toolbar at the top of the Jade window, click on <span class="fa fa-download"> </span> to copy your /alu modules onto
+            the module clipboard.
+
+            <p/>
+            <li/>Returning to this window, in the module toolbar below, click on <span class="fa fa-upload"> </span>, which will pop up a window to let you select which modules to copy into the "Building the Beta" workspace. Select all the /alu modules and
+            click "OK", which will add the selected modules to your parts bin.
+
+            <p/>
+            <li/>Double-check that everything's okay by editing /alu/alu (use the Module: selection box in the module toolbar) and re-running the tests. Hopefully the tests will pass and you're good to go!
+        </ol>
+
+        <p/>Here are some step-by-step design notes for tackling the Beta design.
+
+        <p/><b>Register File (REGFILE)</b>
+
+        <p/>
+        <img src="13.png" width="250" style="float:right;" /> Using the module toolbar, select the /beta/regfile module to edit. The icon for the REGFILE module is shown on the right. The module's inputs are on the left, top, and right; its outputs are
+        on the bottom. The block diagram for the module's internal circuitry is shown on the block diagram above.
+
+        <p/>The heart of the REGFILE module is a 3-port memory, built using the MEM component (found in the toolbar above the schematic diagram). Start your design by dragging an instance of the MEM component into your schematic then editing its properties
+        to set the number of ports to 3, the width of the address to 5 (specifying 32 locations) and the width of the data to 32. Correctly configured, the MEM component icon should look like the one shown on the right below. Note that the <tt>CLK</tt>        inputs are labeled with the triangle symbol we use to indicate an input triggered by a 0&rarr;1 transition.
+
+        <p/><img src="14.png" width="125" style="float:right;" /> Two of the ports are used from reading values from the memory. A read port is configured by setting the port's <tt>OE</tt> input to 1 (connect it to a wire labeled <tt>1'1</tt>) and the <tt>WE</tt>        and <tt>CLK</tt> inputs to 0 (connect them to wires labeled <tt>0'1</tt>).
+
+        <p/>The third port is used for writing values into the memory. A write port is configured by setting the <tt>OE</tt> to 0 and connecting the <tt>WE</tt> and <tt>CLK</tt> to the appropriate signals. A write will occur on the rising edge of the <tt>CLK</tt>        input if the <tt>WE</tt> input is a 1.
+
+        <p/>Now add the RA2SEL and WASEL address muxes to the select the addresses for the second read port and the write port. The WASEL mux input labeled <tt>XP</tt> in the block diagram is indicating the address of the XP register, <i>i.e.</i>, register
+        30.
+
+        <div class="hint">
+            Hint: Remember that the default width of a wire is 1. The outputs of the RA2SEL and WASEL muxes should each be 5 bits wide, the width of a register address. So you'll need to set the widths of the wires connecting the MUX outputs to the memory, either
+            by giving the wires names that implicitly specify a width, <i>e.g.</i>, <tt>ADDR[4:0]</tt>, or by setting the wire's width property to 5.
+
+            <p/>Remember to set width of each wire if the width of the wire is greater than 1. Jade will "transmit" the width information along connected wire segments, so you'll only need to set the width somewhere along the wire's run.
+        </div>
+
+        <p/>Note that the memory component doesn't know that location 31 of the register file should always read as zero, so you'll have to add additional logic around the memory that makes this happen. You can use muxes or ANDs to force the register data
+        for each read port to "0" when the port address is <tt>0b11111</tt> (<i>i.e.</i>, R31). Note that the address for the second read port comes from the output of the RA2SEL mux, so that's the value that needs to be tested for that port.
+
+        <p/>When you're ready to test your circuit, click the green checkmark to run the provided tests that verify your circuit has the functionality described above. If an error is reported, look at the TEST aspect and read the comments associated with
+        that particular test cycle.
+
+        <p/>Now would be a good time to save your work :)
+
+        <div class="hint">
+            Hint: What do I do when the tests fail?
+
+            <p/>The failure notification will tell you which signal failed verification and the simulated time at which the mismatch between the actual value and expected occurred. The tests are actually a sequence of 100ns testing cycles and the reported
+            time will be at the end of one of the cycles when the output values are checked for correctness.
+
+            <p/>Move your mouse over the plot of the appropriate signal waveform until the vertical time cursor is approximately at the failure time. Then double-click to zoom in on the plots around that particular time; zoom in enough so that all the signals
+            for that testing cycle are readable. Now you can figure out what the circuit was being asked to do for that particular test and, hopefully, deduce why your circuit is producing an incorrect output.
+        </div>
+
+        <p/><b>Control Logic (CTL)</b>
+
+        <p/>
+        <img src="15.png" width="150" style="float:right;" /> Using the module toolbar, select the /beta/ctl module to edit. The icon for the PC module is shown on the right. The module's inputs are on the left, its outputs are on the right.
+
+        <p/>The heart of the CTL module is the control ROM, a 64-entry lookup table addressed by the 6-bit opcode field of the instruction
+        <tt>OP[5:0]</tt>, which outputs the appropriate values for the 18 control signals. The ROM can be constructed using MEM component configured to have one read port and with its Contents property initialized with the appropriate values (see the
+        Control logic table in the
+        <A href="../../notes/pdfs/betadiagram.pdf" target="_blank"> Unpipelined Beta</A> diagram). That diagram also has a table of ALUFN values that will be useful when filling in the <tt>ALUFN[5:0]</tt> values for each instruction.
+
+        <p/>The contents property should be a list of 64 18-bit values. You can use extra whitespace and the standard "//" and "/* ... */" comment conventions to make contents more readable. "+" and "_" can be used to separate subfields and will be ignored
+        by the contents parser. You can use "?" to indicate a "don't care" value for a particular digit in a numeric value; it will be replaced by a 0 when Jade builds the ROM contents.
+
+        <p/>To get you started, we've provided a
+        <A href="control_rom.txt" target="_blank">control ROM contents file</A> which you can copy-and-paste into the contents property of the MEM component. You should then edit the control signal values specified for each of the 64 opcodes so that the ROM will generate the signals necessary for the Beta to correctly execute
+        instructions with that particular opcode.
+
+        <div class="hint">
+            Hint: When editing a property you can enlarge the input field by clicking and dragging on the lower right-hand corner of the input field.
+        </div>
+
+        <p/>In this file the control signals have been set as if the corresponding opcode was an illegal instruction, <i>i.e.</i>, using the ILLOP column of the Control logic table. The contents are formatted so that <tt>ALUFN[5]</tt> is the most-significant
+        bit of the 18-bit output and <tt>WERF</tt> is the least-significant bit &mdash; see the comments in the file for the exact order of the signals in each binary value. There's an 18-bit binary value specifying the control signals for each of the
+        64 opcodes, listed in opcode order. There's a comment at the end of each line that indicates the opcode number and the corresponding Beta opcode, if any. Here's a small excerpt from the middle of the file:
+
+        <pre class="jsim">// alufn[5:0]
+// asel, bsel
+// moe, mwr
+// pcsel[2:0]
+// ra2sel
+// wasel, wdsel[1:0], werf
+0b??????_??_?0_011_?_1001  // 0b100000 ADD
+0b??????_??_?0_011_?_1001  // 0b100001 SUB
+0b??????_??_?0_011_?_1001  // 0b100010 MUL
+0b??????_??_?0_011_?_1001  // 0b100011 DIV
+0b??????_??_?0_011_?_1001  // 0b100100 CMPEQ
+0b??????_??_?0_011_?_1001  // 0b100101 CMPLT
+0b??????_??_?0_011_?_1001  // 0b100110 CMPLE
+0b??????_??_?0_011_?_1001  // 0b100111</pre> The first 6 bits on a line specify the values for <tt>ALUFN[5:0]</tt>, the next 2 bits specify the values for <tt>ASEL</tt> and <tt>BSEL</tt>, and so on.
+
+        <p/>Some of the outputs of the control ROM will have to be modified by external logic before connecting the appropriate output of the CTL module:
+
+        <ul>
+            <li/><tt>PCSEL[2:0]</tt> will have to be modified to be 1 when the current instruction is a taken branch, <i>i.e.</i>, when
+            <ul>
+                the instruction is <tt>BEQ</tt> and <tt>Z</tt> is 1<br/> the instruction is <tt>BNE</tt> and <tt>Z</tt> is 0
+            </ul>
+            If the branch is not taken, PCSEL should be 0.
+
+            <p/>
+            <li/>If <tt>IRQ</tt> is 1, <i>i.e.</i>, we want the Beta to take an interrupt, the following control signals must be given the indicated values:
+            <ul>
+                <tt>MWR</tt> = 0<br/>
+                <tt>PCSEL[2:0]</tt> = 0b100<br/>
+                <tt>WASEL</tt> = 1<br/>
+                <tt>WDSEL[1:0]</tt> = 0b00<br/>
+                <tt>WERF</tt> = 1<br/>
+            </ul>
+
+            <p/>
+            <li/><tt>MWR</tt> needs to be forced to 0 when <tt>RESET</tt> is 1. Note that this takes precedence over any values determined by IRQ.
+
+        </ul>
+
+        When you've completed the schematic for the CTL module, click on the green checkmark in the toolbar to run the provided tests. The tests ensure that all the functionlity described above is implemented correctly.
+
+        <p/><b>Program Counter (PC)</b>
+
+        <p/>
+        <img src="12.png" width="200" style="float:right;" /> Using the module toolbar, select the /beta/pc module to edit. The icon for the PC module is shown on the right. The module's inputs are on the left, its outputs are on the right. The block
+        diagram for the module's internal circuitry is shown on the block diagram above.
+
+        <p/>The heart of the PC module is the 32-bit register that holds the current value of the program counter, which is the address in main memory of the instruction to be executed in the current clock cycle,
+        <tt>PC[31:0]</tt>. The high-order bit of the register,
+        <tt>PC[31]</tt>, is used as the <i>supervisor bit</i>. When the supervisor bit is 0, the Beta is in user mode, executing programs normally with interrupts enabled. When the supervisor bit is 1, the Beta is in supervisor mode (sometimes called
+        kernel mode), executing kernel code with interrupts disabled.
+
+        <p/>The PC register can be built using the DREG component from the parts library. You should include hardware for the bottom two bits of the PC even though they are always 0; this will make debugging traces easier to interpret.
+
+        <p/>The 5-input 32-bit PCSEL multiplexer selects the value to be loaded into the PC register at next rising edge of the clock. Since the standard cell library doesn't have any 5-input multiplexers, you'll have to construct the logic that selects the
+        next PC using a combination of other components. Remember to add a way to set the PC to 0x80000000 on reset. We'll use the RESET signal to force the PC to 0x80000000 during the first cycle of operation. We'll describe each of the PCSEL input values
+        in more detail below.
+
+        <p/>The PC module contains two 32-bit adders, which you can build as ripple-carry adders using full-adder module you used in the Lab 3 in the ARITH module of the ALU.
+
+        <ul>
+            The <b>PC+4 adder</b> simply adds 4 to the output of the PC register, computing the address of the instruction following the current instruction. The output of this adder forms the
+            <tt>PC_INC[30:0]</tt> output of the PC module. Since we don't want to allow a program to increment itself from user mode to supervisor mode, we don't want to use the high-order bit of this adder's output. Instead, ignore the high-order bit
+            from the PC+4 adder and use a jumper to connect <tt>PC[31]</tt> to <tt>PC_INC[31]</tt>, ensuring the supervisor bit remains unchanged when
+            <tt>PC_INC[31:0]</tt> is chosen as the next value of the PC.
+
+            <p/>The <b>branch-offset adder</b> is responsible for computing the address of instruction specified by the literal field in
+            <tt>BEQ</tt> and <tt>BNE</tt> instructions. That address is \((\textrm{PC}+4) + 4\cdot\textrm{SXT}(\textrm{ID[15:0]})\), <i>i.e.</i>, multiplying the sign-extended 16-bit literal field of the instruction by 4 to convert the word offset into
+            a branch offset, then adding that to the address of the next instruction. Both the sign extension and multiply-by-4 can be done with appropriate wiring &mdash; no gates required! The output of this adder forms the
+            <tt>PC_OFFSET[30:0]</tt> output of the PC module. For exactly the same reasons given above, ignore the high-order bit from the output of the branch-offset adder and use a jumper to connect
+            <tt>PC[31]</tt> to <tt>PC_OFFSET[31]</tt>.
+        </ul>
+
+        <p/>Here are some more details about the five inputs to the PCSEL mux.
+
+        <ul>
+
+            PCSEL=0. This input is selected during "normal" execution when the next instruction to be executed is the one after the current instruction, so connect this input to <tt>PC_INC[31:0]</tt>.
+
+            <p/>PCSEL=1. This input is selected when a branch instruction is "taken",
+            <i>i.e.</i>, the next instruction is at the address <tt>PC_OFFSET[31:0]</tt>.
+
+            <p/>PCSEL=2. This input is selected during a JMP instruction, when we use the (slightly modified) contents of the register selected by the RA field of the instruction as the address of the next instruction. This value is the <tt>JT[31:2]</tt>            input to the PC module. We're ignoring the low-order 2 bits of the register value and instead should use 0b00 as the correct value for these bits since instructions are always on a word boundary. <tt>JT[31]</tt>, the proposed new value for
+            the supervisor bit, gets special treatment. You'll have to add logic to compute bit 31 of this PCSEL mux input to ensure that <tt>JMP</tt> instruction can only clear or leave the supervisor bit unchanged. Here's a table showing the new value
+            of the supervisor bit after a <tt>JMP</tt> as function of
+            <tt>JT[31]</tt> and the current value of the supervisor bit (
+            <tt>PC[31]</tt>):
+
+            <pre>
+    current PC[31]   JT[31]   next PC[31]
+    0              --         0
+    1              0          0
+    1              1          1
+  </pre>
+
+            <p/>PCSEL=3. This input is selected when the current instruction has an illegal opcode, so we want to set the next PC to 0x80000004. It's easy to create a 32-bit-wide wire with the appropriate constant value: simply label the wire with a name
+            of the form <i>number</i>'<i>width</i>. In this case we want the label <tt>0x80000004'32</tt>.
+
+            <p/>PCSEL=4. This input is selected when the Beta is taking an interrupt, so we want to set the next PC to 0x80000008.
+
+        </ul>
+
+        When you've completed the schematic for the PC module, click on the green checkmark in the toolbar to run the provided tests. The tests ensure that all the functionlity described above is implemented correctly.
+
+        <p/><b>Everything else</b>
+
+        <p/>Now it's time to put it all together: using the module toolbar, select the /beta/beta module to edit. This implementation of the Beta subcircuit has the following terminals:
+
+        <p/>
+        <table border="1" cellpadding="3" style="border-collapse:collapse">
+            <tr>
+                <td><tt>clk</tt></td>
+                <td>input</td>
+                <td>
+                    clock (from test circuitry): a 10MHz square wave creating a 100ns clock period.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>reset</tt></td>
+                <td>input</td>
+                <td>
+                    reset (from test circuitry): set by the test circuitry to 1 until after the first rising edge of <tt>clk</tt>, then set to 0 to start the Beta running.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>irq</tt></td>
+                <td>input</td>
+                <td>
+                    interrupt request (from test circuitry): set by the test circuitry to 1 to interrupt execution of a running user-mode program (<i>i.e.</i> programs where PC[31] = 0), saving PC+4 in Reg[XP], and setting the PC to 0x80000008.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>ia[31:0]</tt></td>
+                <td>outputs</td>
+                <td>
+                    instruction address (<tt>PC[31:0]</tt> from the PC module): address of the next instruction to be executed. This sent to the first read port of main memory.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>id[31:0]</tt></td>
+                <td>inputs</td>
+                <td>
+                    instruction data (from test circuitry). After the appropriate propagation delay, the main memory will drive these signals with the contents of the memory location specified by <tt>ia[31:0]</tt>.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>ma[31:0]</tt></td>
+                <td>outputs</td>
+                <td>
+                    memory data address (from ALU): address of data location in main memory to be read or written. This is sent to second read port of main memory.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>mrd[31:0]</tt></td>
+                <td>inputs</td>
+                <td>
+                    memory read data (from test circuitry): if <tt>moe</tt> is 1, the main memory will drive these signals with the contents of the memory location specified by <tt>ma[31:0]</tt>.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>moe</tt></td>
+                <td>output</td>
+                <td>
+                    memory read data output enable (from control logic): should be set to 1 when the Beta want to read the contents of the memory location specified by <tt>ma[31:0]</tt>.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>mwd[31:0]</tt></td>
+                <td>outputs</td>
+                <td>
+                    memory write data (from register file): if <tt>wr</tt> is 1, this is the data that will be written into memory location <tt>ma[31:0]</tt> at the end of the current cycle.
+                </td>
+            </tr>
+            <tr>
+                <td><tt>mwr</tt></td>
+                <td>output</td>
+                <td>
+                    memory write enable (from control logic): Set to 1 when the Beta wants to store into the memory location specified by <tt>ma[31:0]</tt> at the end of the current cycle. <b>NOTE: this signal should always
+        have a valid logic value at the rising edge of CLK</b> otherwise the contents of the memory will be erased. You'll need to take care in designing the logic that generates this signal &mdash; see the CTL section above for details.
+                </td>
+            </tr>
+        </table>
+
+        <p/>Next step: add the appropriate components to the Beta schematic and create connections shown in the block diagram above. Note that the Instruction and Data memories (shown in grey) will be provided by the test circuitry and are not part of your
+        Beta design. You'll need instances of your PC, CTL, REGFILE and ALU modules along with the following:
+
+        <p/>
+        <ul>
+            <tt>BSEL</tt> mux: The low-order 16 bits of the instruction need to be sign-extended to 32 bits. Sign-extension is easy in hardware! Just connect <tt>id[15:0]</tt> to the low-order sixteen <tt>D1</tt> inputs of the mux and <tt>id[15]</tt>            to each of the high-order sixteen
+            <tt>D1</tt> inputs.
+
+            <p/><tt>ASEL</tt> mux and <tt>Z</tt> logic: these are added to the <tt>RADATA[31:0]</tt> port of the register file. When connecting the <tt>PC_OFFSET</tt> output from the PC module to the "1" input of the <tt>ASEL</tt> mux, you should ignore the
+            high-order bit and use 0'1 instead, since we don't want to use the supervisor bit as part of the LDR address.
+
+            <p/><tt>WDSEL</tt> mux: this 3-input 32-bit multiplexer will select the data to be written into the register file from one of three possible sources. Sorry, no MUX3 in the parts bin, but you can use a MUX4 and tie an input to <tt>0'32</tt>.
+
+            <p/><tt>IRQ</tt> logic: the Beta should only respond to an external interrupt request when it's executing in user mode, <i>i.e.</i>, when
+            <tt>PC[31]</tt> is 0. You'll need to add some logic to ensure this functionality when generating the <tt>IRQ</tt> input to the CTL module.
+
+        </ul>
+
+        When you're ready to test your design, select the /beta/test module. This module contains an instance of your Beta module along with a 3-port main memory which has been initialized with the binary code for a test program that checks out your Beta's functionality.
+        Click on the green checkmark to run the test, which will execute for 433 cycles, verifying the correct values on the Beta's outputs each cycle. The checks are made just before each rising clock edge, <i>i.e.</i>, after the current instruction
+        has been fetched and executed, but just before the result is written into the register file. Since
+        <tt>ma[31:0]</tt> is actually just the output of the ALU, we're able to verify all the OP- and OPC-class instructions. If you get a verification error, check the instruction that has just finished executing at the time reported in the error message
+        &mdash; the Beta has executed that instruction incorrectly for some reason.
+
+        <p/>Almost nobody's design executes the checkoff program correctly the first time &mdash; it will take some effort to debug your design, but stick with it. If you're stuck, get help from your fellow students or the course staff. When it works, congratulations!
+        The design of a complete CPU at the gate level is a significant accomplishment. Of course, now the fun is just beginning &mdash; there are undoubtedly many ways you can make improvements, both large and small.
+
+        <p/>Good luck! By finishing you'll earn your very own "Beta Inside" sticker &#x263A;
+
+        <p/>
+        <center><img src="16.png" /></center>
+
+        <p/><b>Appendix: Test program</b>
+
+        <p/>The BSim instance below shows the Beta program used to test the functionality of your Beta implementation. You may find it useful to compare the cycle-by-cycle operation of your circuit with the cycle-by-cycle execution of the test program in
+        the BSim simulator. Note that any changes you make below (e.g., adding breakpoints) will not be saved when leaving this window.
+
+        <p/>
+        <answer type="window" tool_name="BSim" width="900" height="600" src="../../tools/bsim_workbook.html" style="border: 1px solid black;">{ "initial_state": { "beta.uasm": "url:../exercises/beta.uasm" }, "state": {"Beta": "url:../exercises/beta/beta_test.uasm"} }
+        </answer>
+
+        <div class="xyzzy">
+            cd23d89a1c4843216f7a1e113c65c8e10a997b190a65281c70e51373257988f07d9a4c3962875879b34ac57be94901e02d5af9ae57ea4dcca3165ddd52baad9fb9f9c40c9ee306d69f0213d58724b0b317244bf3050b0b28d6165d163e20970aa8a5d796bcd517bb889bcc5fce40a419964363ed3a017cadabd9f42fe3727a1bc11249f1b72ad38a12c6a8ea311966849a965d67f45dce949998c564acb6f00497b95265d42f87c9c19bc27c4b8c879078851baaee4654be64b3b2b8795fc16ea0da57e503ee2442537be573d93781bf259cfb9a5902e88142b2f889c5e634f730b0a80780fbe12146c808eba686a5137544f440508b3ae9eca6a086ded50d1981431fb034b6d52a949f26b8b72ad38a12c6a8ea40d26b0641af6bae6408b6055b76fbdbffbfb3085f791c6435bc82112b2cb7b1b0894afe63395aa66cba8085b079c00f42272052b1a246a12f758519144302cd357af8769eff9f6786f54fd43f4f1f89d1fad7e4ffbf3ebee05f33a9d28edae420ea0ca2f77649ffc4e725629836759bbb8bf228346e09e9dc0d314d60454f5330727fba6bfb09a3f9f13ebce95bbc5757bf75fe6584e16dd2f9a7b1454761037e5c01a7f7f06e1e8739b02eeec3a624b1da3e6926f54f9f11ea5613b400646bded346607d59f84bbb898536ea07d0ab0b503592e0ab5910e3727a1bc11249f1625d1ea89fc4037fdea45cc796dfe00885bde37347381872dcc040e0b272739d39aca9e7ba3b83bbd2ae0e8cbd36990df4f9e9a74b91f771b0894afe63395aa627b9f2d21cb1ac394d9bd221574a95838dbc073e0300dcafc8fd6679ab120330cbc5869236b319376c96d946c53cec1183c3b41e5e03fe2d05aaa2370718e5f48447f14131155cc30276a61296c16adb300c332023aa511177bd481e363d83a7ce40a419964363ed74dcf7ca69e34b9bab6414c2a456a9ab7d8286cafb5e66018503fcda4b12ac04b40f9d00c8846a2e5902e88142b2f889e48bf848e2f7c099f70b8457eba48337540e6683b29df88a6e3a2b78ed2d556e624789640a0976ab41795a9160d44568476b2e70200c131158b01cfe63fa4d0a2a926c5524e1d7bc435d630deb4a0f648b30c4674cdd968b9b06dbf4eb50367167c8f6eab4d3a582cd15fc8f5a9f8a9e352d5e51b02183ae9f5268006e6e02dddf34ebb521e6a9322c7539111bcc0e5e4f869f42e7e194daee3fad899b1030f3f46aa0073eb87086
+        </div>
+
+        <div class="footer" style="font-size: small;">
+            <p/>
+            <hr/>
+            <p/>
+            <!---->
+
+            <br> Copyright &copy; 2015-2017 M.I.T. Department of Electrical Engineering and Computer Science
+
+            <br> Your use of this site and materials is subject to our
+            <a href="../../terms.html">terms of use</a>.
+        </div>
+
+    </div>
+</body>
+
+</html>
