@@ -31,6 +31,10 @@ be careful since all the lab content will only be saved in your browser cache, y
 
 
 
+btw, you can do your lab design locally by running the simulation env locally, which can be downloaded from [6.004 tools & jade](https://github.com/6004x), then http://localhost:8000/jade_workbook.html, but the original /gates/and2, nor2...the like do not work, you have to substitute your own gates from lab2 /adder/and2, nor2...
+
+
+
 ### reference
 
 课程:https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-004-computation-structures-spring-2017/calendar/
